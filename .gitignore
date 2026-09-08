@@ -1,0 +1,16 @@
+.env
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env.local
+data/raw/*
+data/archive/*
+data/processed/*.pkl
+data/processed/*.faiss
+outputs/
+*.log
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
