@@ -1,0 +1,479 @@
+[
+  {
+    "id": "p_0001",
+    "customer_msg": "My promo code SAVE20 didn't work at checkout, charged full price",
+    "brand_reply": "Sorry about that! Please DM us your trip details and the promo code — we'll check why it didn't apply.",
+    "tweet_id": "t_0001",
+    "reply_tweet_id": "r_0001",
+    "resolved": true,
+    "intent": "promo_code_failed"
+  },
+  {
+    "id": "p_0002",
+    "customer_msg": "Applied discount code but still got charged $45, code was supposed to be 50% off",
+    "brand_reply": "Sorry about that! Please DM us your trip details and the promo code — we'll check why it didn't apply.",
+    "tweet_id": "t_0002",
+    "reply_tweet_id": "r_0002",
+    "resolved": true,
+    "intent": "promo_code_failed"
+  },
+  {
+    "id": "p_0003",
+    "customer_msg": "Why won't my uber promo apply? Tried 3 times",
+    "brand_reply": "Sorry about that! Please DM us your trip details and the promo code — we'll check why it didn't apply.",
+    "tweet_id": "t_0003",
+    "reply_tweet_id": "r_0003",
+    "resolved": true,
+    "intent": "promo_code_failed"
+  },
+  {
+    "id": "p_0004",
+    "customer_msg": "Code UBEREATS25 says invalid but it's from your email campaign",
+    "brand_reply": "Sorry about that! Please DM us your trip details and the promo code — we'll check why it didn't apply.",
+    "tweet_id": "t_0004",
+    "reply_tweet_id": "r_0004",
+    "resolved": true,
+    "intent": "promo_code_failed"
+  },
+  {
+    "id": "p_0005",
+    "customer_msg": "Promo not working again!!! This is the 2nd time this month",
+    "brand_reply": "Sorry about that! Please DM us your trip details and the promo code — we'll check why it didn't apply.",
+    "tweet_id": "t_0005",
+    "reply_tweet_id": "r_0005",
+    "resolved": true,
+    "intent": "promo_code_failed"
+  },
+  {
+    "id": "p_0006",
+    "customer_msg": "Need a receipt for my trip yesterday for expense report",
+    "brand_reply": "You can find receipts in the app under Your Trips → select trip → Receipt. DM us if you need help!",
+    "tweet_id": "t_0006",
+    "reply_tweet_id": "r_0006",
+    "resolved": true,
+    "intent": "receipt_request"
+  },
+  {
+    "id": "p_0007",
+    "customer_msg": "Can you email me the invoice for trip on March 15?",
+    "brand_reply": "You can find receipts in the app under Your Trips → select trip → Receipt. DM us if you need help!",
+    "tweet_id": "t_0007",
+    "reply_tweet_id": "r_0007",
+    "resolved": true,
+    "intent": "receipt_request"
+  },
+  {
+    "id": "p_0008",
+    "customer_msg": "How do I get a receipt? Can't find it in the app",
+    "brand_reply": "You can find receipts in the app under Your Trips → select trip → Receipt. DM us if you need help!",
+    "tweet_id": "t_0008",
+    "reply_tweet_id": "r_0008",
+    "resolved": true,
+    "intent": "receipt_request"
+  },
+  {
+    "id": "p_0009",
+    "customer_msg": "Business trip receipt needed - trip ID 12345",
+    "brand_reply": "You can find receipts in the app under Your Trips → select trip → Receipt. DM us if you need help!",
+    "tweet_id": "t_0009",
+    "reply_tweet_id": "r_0009",
+    "resolved": true,
+    "intent": "receipt_request"
+  },
+  {
+    "id": "p_0010",
+    "customer_msg": "Please send receipt to my work email for reimbursement",
+    "brand_reply": "You can find receipts in the app under Your Trips → select trip → Receipt. DM us if you need help!",
+    "tweet_id": "t_0010",
+    "reply_tweet_id": "r_0010",
+    "resolved": true,
+    "intent": "receipt_request"
+  },
+  {
+    "id": "p_0011",
+    "customer_msg": "Left my phone in the Uber last night, white Toyota Camry around 11pm",
+    "brand_reply": "Sorry to hear that! Use the in-app Lost Item feature (Your Trips → trip → I lost an item) to contact your driver.",
+    "tweet_id": "t_0011",
+    "reply_tweet_id": "r_0011",
+    "resolved": true,
+    "intent": "lost_item"
+  },
+  {
+    "id": "p_0012",
+    "customer_msg": "Forgot my wallet in the car, driver already left. Trip was to airport",
+    "brand_reply": "Sorry to hear that! Use the in-app Lost Item feature (Your Trips → trip → I lost an item) to contact your driver.",
+    "tweet_id": "t_0012",
+    "reply_tweet_id": "r_0012",
+    "resolved": true,
+    "intent": "lost_item"
+  },
+  {
+    "id": "p_0013",
+    "customer_msg": "I left my keys in the back seat, need to contact driver",
+    "brand_reply": "Sorry to hear that! Use the in-app Lost Item feature (Your Trips → trip → I lost an item) to contact your driver.",
+    "tweet_id": "t_0013",
+    "reply_tweet_id": "r_0013",
+    "resolved": true,
+    "intent": "lost_item"
+  },
+  {
+    "id": "p_0014",
+    "customer_msg": "Lost item - blue backpack left in vehicle, trip ended 30 min ago",
+    "brand_reply": "Sorry to hear that! Use the in-app Lost Item feature (Your Trips → trip → I lost an item) to contact your driver.",
+    "tweet_id": "t_0014",
+    "reply_tweet_id": "r_0014",
+    "resolved": true,
+    "intent": "lost_item"
+  },
+  {
+    "id": "p_0015",
+    "customer_msg": "My AirPods are still in the car from my ride this morning",
+    "brand_reply": "Sorry to hear that! Use the in-app Lost Item feature (Your Trips → trip → I lost an item) to contact your driver.",
+    "tweet_id": "t_0015",
+    "reply_tweet_id": "r_0015",
+    "resolved": true,
+    "intent": "lost_item"
+  },
+  {
+    "id": "p_0016",
+    "customer_msg": "App keeps crashing when I try to request a ride",
+    "brand_reply": "Sorry for the trouble! Try force-closing the app. If it persists, DM us your device and app version.",
+    "tweet_id": "t_0016",
+    "reply_tweet_id": "r_0016",
+    "resolved": true,
+    "intent": "app_technical_bug"
+  },
+  {
+    "id": "p_0017",
+    "customer_msg": "Payment method won't save, keeps saying error occurred",
+    "brand_reply": "Sorry for the trouble! Try force-closing the app. If it persists, DM us your device and app version.",
+    "tweet_id": "t_0017",
+    "reply_tweet_id": "r_0017",
+    "resolved": true,
+    "intent": "app_technical_bug"
+  },
+  {
+    "id": "p_0018",
+    "customer_msg": "GPS showing wrong location, can't get picked up",
+    "brand_reply": "Sorry for the trouble! Try force-closing the app. If it persists, DM us your device and app version.",
+    "tweet_id": "t_0018",
+    "reply_tweet_id": "r_0018",
+    "resolved": true,
+    "intent": "app_technical_bug"
+  },
+  {
+    "id": "p_0019",
+    "customer_msg": "Can't login to my account, stuck on loading screen",
+    "brand_reply": "Sorry for the trouble! Try force-closing the app. If it persists, DM us your device and app version.",
+    "tweet_id": "t_0019",
+    "reply_tweet_id": "r_0019",
+    "resolved": true,
+    "intent": "app_technical_bug"
+  },
+  {
+    "id": "p_0020",
+    "customer_msg": "App frozen on splash screen after update, iPhone 14",
+    "brand_reply": "Sorry for the trouble! Try force-closing the app. If it persists, DM us your device and app version.",
+    "tweet_id": "t_0020",
+    "reply_tweet_id": "r_0020",
+    "resolved": true,
+    "intent": "app_technical_bug"
+  },
+  {
+    "id": "p_0021",
+    "customer_msg": "Charged $67 for a trip that normally costs $25, this is ridiculous",
+    "brand_reply": "We understand fare concerns. Please DM us trip details — our team will review the route and charges.",
+    "tweet_id": "t_0021",
+    "reply_tweet_id": "r_0021",
+    "resolved": true,
+    "intent": "fare_overcharge_dispute"
+  },
+  {
+    "id": "p_0022",
+    "customer_msg": "Driver took a longer route on purpose, fare was double what it should be",
+    "brand_reply": "We understand fare concerns. Please DM us trip details — our team will review the route and charges.",
+    "tweet_id": "t_0022",
+    "reply_tweet_id": "r_0022",
+    "resolved": true,
+    "intent": "fare_overcharge_dispute"
+  },
+  {
+    "id": "p_0023",
+    "customer_msg": "Got charged twice for the same trip!!!",
+    "brand_reply": "We understand fare concerns. Please DM us trip details — our team will review the route and charges.",
+    "tweet_id": "t_0023",
+    "reply_tweet_id": "r_0023",
+    "resolved": true,
+    "intent": "fare_overcharge_dispute"
+  },
+  {
+    "id": "p_0024",
+    "customer_msg": "Upfront price was $18, final charge was $34. Why?",
+    "brand_reply": "We understand fare concerns. Please DM us trip details — our team will review the route and charges.",
+    "tweet_id": "t_0024",
+    "reply_tweet_id": "r_0024",
+    "resolved": true,
+    "intent": "fare_overcharge_dispute"
+  },
+  {
+    "id": "p_0025",
+    "customer_msg": "This fare is way too high for a 2 mile trip, disputing this",
+    "brand_reply": "We understand fare concerns. Please DM us trip details — our team will review the route and charges.",
+    "tweet_id": "t_0025",
+    "reply_tweet_id": "r_0025",
+    "resolved": true,
+    "intent": "fare_overcharge_dispute"
+  },
+  {
+    "id": "p_0026",
+    "customer_msg": "Charged $5 cancellation fee but driver never showed up",
+    "brand_reply": "Cancellation fees can be confusing. DM us the trip date and we'll review whether the fee applies.",
+    "tweet_id": "t_0026",
+    "reply_tweet_id": "r_0026",
+    "resolved": true,
+    "intent": "cancellation_fee_dispute"
+  },
+  {
+    "id": "p_0027",
+    "customer_msg": "Why am I being charged for cancelling when the wait was 20 min?",
+    "brand_reply": "Cancellation fees can be confusing. DM us the trip date and we'll review whether the fee applies.",
+    "tweet_id": "t_0027",
+    "reply_tweet_id": "r_0027",
+    "resolved": true,
+    "intent": "cancellation_fee_dispute"
+  },
+  {
+    "id": "p_0028",
+    "customer_msg": "Cancelled because driver was going wrong direction, still got fee",
+    "brand_reply": "Cancellation fees can be confusing. DM us the trip date and we'll review whether the fee applies.",
+    "tweet_id": "t_0028",
+    "reply_tweet_id": "r_0028",
+    "resolved": true,
+    "intent": "cancellation_fee_dispute"
+  },
+  {
+    "id": "p_0029",
+    "customer_msg": "Unfair cancellation charge - app said driver was 15 min away for 25 min",
+    "brand_reply": "Cancellation fees can be confusing. DM us the trip date and we'll review whether the fee applies.",
+    "tweet_id": "t_0029",
+    "reply_tweet_id": "r_0029",
+    "resolved": true,
+    "intent": "cancellation_fee_dispute"
+  },
+  {
+    "id": "p_0030",
+    "customer_msg": "Fee for cancelling a ride where driver never arrived at pickup",
+    "brand_reply": "Cancellation fees can be confusing. DM us the trip date and we'll review whether the fee applies.",
+    "tweet_id": "t_0030",
+    "reply_tweet_id": "r_0030",
+    "resolved": true,
+    "intent": "cancellation_fee_dispute"
+  },
+  {
+    "id": "p_0031",
+    "customer_msg": "Driver was extremely rude and yelled at me",
+    "brand_reply": "We're sorry about your experience. Please DM us trip details so we can investigate.",
+    "tweet_id": "t_0031",
+    "reply_tweet_id": "r_0031",
+    "resolved": true,
+    "intent": "driver_behavior_complaint"
+  },
+  {
+    "id": "p_0032",
+    "customer_msg": "Driver was smoking in the car, very unprofessional",
+    "brand_reply": "We're sorry about your experience. Please DM us trip details so we can investigate.",
+    "tweet_id": "t_0032",
+    "reply_tweet_id": "r_0032",
+    "resolved": true,
+    "intent": "driver_behavior_complaint"
+  },
+  {
+    "id": "p_0033",
+    "customer_msg": "Driver took a phone call the entire ride on speaker, ignored me",
+    "brand_reply": "We're sorry about your experience. Please DM us trip details so we can investigate.",
+    "tweet_id": "t_0033",
+    "reply_tweet_id": "r_0033",
+    "resolved": true,
+    "intent": "driver_behavior_complaint"
+  },
+  {
+    "id": "p_0034",
+    "customer_msg": "Driver had terrible attitude, refused to help with bags",
+    "brand_reply": "We're sorry about your experience. Please DM us trip details so we can investigate.",
+    "tweet_id": "t_0034",
+    "reply_tweet_id": "r_0034",
+    "resolved": true,
+    "intent": "driver_behavior_complaint"
+  },
+  {
+    "id": "p_0035",
+    "customer_msg": "Most disrespectful driver I've ever had, complained about the tip",
+    "brand_reply": "We're sorry about your experience. Please DM us trip details so we can investigate.",
+    "tweet_id": "t_0035",
+    "reply_tweet_id": "r_0035",
+    "resolved": true,
+    "intent": "driver_behavior_complaint"
+  },
+  {
+    "id": "p_0036",
+    "customer_msg": "Driver ran a red light and I almost got hurt this is NOT ok",
+    "brand_reply": "We're very sorry. Your safety is our priority — a specialist will reach out shortly.",
+    "tweet_id": "t_0036",
+    "reply_tweet_id": "r_0036",
+    "resolved": true,
+    "intent": "driver_unsafe_incident"
+  },
+  {
+    "id": "p_0037",
+    "customer_msg": "Felt unsafe - driver was driving recklessly, swerving between lanes",
+    "brand_reply": "We're very sorry. Your safety is our priority — a specialist will reach out shortly.",
+    "tweet_id": "t_0037",
+    "reply_tweet_id": "r_0037",
+    "resolved": true,
+    "intent": "driver_unsafe_incident"
+  },
+  {
+    "id": "p_0038",
+    "customer_msg": "Driver made me feel physically threatened, would not unlock doors",
+    "brand_reply": "We're very sorry. Your safety is our priority — a specialist will reach out shortly.",
+    "tweet_id": "t_0038",
+    "reply_tweet_id": "r_0038",
+    "resolved": true,
+    "intent": "driver_unsafe_incident"
+  },
+  {
+    "id": "p_0039",
+    "customer_msg": "Got into an accident because driver was texting while driving",
+    "brand_reply": "We're very sorry. Your safety is our priority — a specialist will reach out shortly.",
+    "tweet_id": "t_0039",
+    "reply_tweet_id": "r_0039",
+    "resolved": true,
+    "intent": "driver_unsafe_incident"
+  },
+  {
+    "id": "p_0040",
+    "customer_msg": "Driver harassed me during the ride, I was scared for my safety",
+    "brand_reply": "We're very sorry. Your safety is our priority — a specialist will reach out shortly.",
+    "tweet_id": "t_0040",
+    "reply_tweet_id": "r_0040",
+    "resolved": true,
+    "intent": "driver_unsafe_incident"
+  },
+  {
+    "id": "p_0041",
+    "customer_msg": "Unsafe driving - nearly hit a pedestrian, I'm reporting this",
+    "brand_reply": "We're very sorry. Your safety is our priority — a specialist will reach out shortly.",
+    "tweet_id": "t_0041",
+    "reply_tweet_id": "r_0041",
+    "resolved": true,
+    "intent": "driver_unsafe_incident"
+  },
+  {
+    "id": "p_0042",
+    "customer_msg": "Driver appeared intoxicated, I got out early because I was afraid",
+    "brand_reply": "We're very sorry. Your safety is our priority — a specialist will reach out shortly.",
+    "tweet_id": "t_0042",
+    "reply_tweet_id": "r_0042",
+    "resolved": true,
+    "intent": "driver_unsafe_incident"
+  },
+  {
+    "id": "p_0043",
+    "customer_msg": "Sexual harassment from driver during ride, this is assault",
+    "brand_reply": "We're very sorry. Your safety is our priority — a specialist will reach out shortly.",
+    "tweet_id": "t_0043",
+    "reply_tweet_id": "r_0043",
+    "resolved": true,
+    "intent": "driver_unsafe_incident"
+  },
+  {
+    "id": "p_0044",
+    "customer_msg": "Locked out of my account, can't reset password",
+    "brand_reply": "Sorry you're locked out. Please DM us the email on your account and we'll help restore access.",
+    "tweet_id": "t_0044",
+    "reply_tweet_id": "r_0044",
+    "resolved": true,
+    "intent": "account_access_issue"
+  },
+  {
+    "id": "p_0045",
+    "customer_msg": "My account was deactivated for no reason, need it back",
+    "brand_reply": "Sorry you're locked out. Please DM us the email on your account and we'll help restore access.",
+    "tweet_id": "t_0045",
+    "reply_tweet_id": "r_0045",
+    "resolved": true,
+    "intent": "account_access_issue"
+  },
+  {
+    "id": "p_0046",
+    "customer_msg": "Banned from uber with no explanation, I did nothing wrong",
+    "brand_reply": "Sorry you're locked out. Please DM us the email on your account and we'll help restore access.",
+    "tweet_id": "t_0046",
+    "reply_tweet_id": "r_0046",
+    "resolved": true,
+    "intent": "account_access_issue"
+  },
+  {
+    "id": "p_0047",
+    "customer_msg": "Can't access account after phone number change",
+    "brand_reply": "Sorry you're locked out. Please DM us the email on your account and we'll help restore access.",
+    "tweet_id": "t_0047",
+    "reply_tweet_id": "r_0047",
+    "resolved": true,
+    "intent": "account_access_issue"
+  },
+  {
+    "id": "p_0048",
+    "customer_msg": "Account suspended - I rely on Uber for work, please help",
+    "brand_reply": "Sorry you're locked out. Please DM us the email on your account and we'll help restore access.",
+    "tweet_id": "t_0048",
+    "reply_tweet_id": "r_0048",
+    "resolved": true,
+    "intent": "account_access_issue"
+  },
+  {
+    "id": "p_0049",
+    "customer_msg": "How do I schedule a ride in advance?",
+    "brand_reply": "Thanks for reaching out! DM us for account-specific help.",
+    "tweet_id": "t_0049",
+    "reply_tweet_id": "r_0049",
+    "resolved": true,
+    "intent": "general_inquiry"
+  },
+  {
+    "id": "p_0050",
+    "customer_msg": "Thanks for the great service last night!",
+    "brand_reply": "Thanks for reaching out! DM us for account-specific help.",
+    "tweet_id": "t_0050",
+    "reply_tweet_id": "r_0050",
+    "resolved": true,
+    "intent": "general_inquiry"
+  },
+  {
+    "id": "p_0051",
+    "customer_msg": "Do you operate in Portland Oregon?",
+    "brand_reply": "Thanks for reaching out! DM us for account-specific help.",
+    "tweet_id": "t_0051",
+    "reply_tweet_id": "r_0051",
+    "resolved": true,
+    "intent": "general_inquiry"
+  },
+  {
+    "id": "p_0052",
+    "customer_msg": "What's the difference between UberX and Comfort?",
+    "brand_reply": "Thanks for reaching out! DM us for account-specific help.",
+    "tweet_id": "t_0052",
+    "reply_tweet_id": "r_0052",
+    "resolved": true,
+    "intent": "general_inquiry"
+  },
+  {
+    "id": "p_0053",
+    "customer_msg": "Can I add a stop during my ride?",
+    "brand_reply": "Thanks for reaching out! DM us for account-specific help.",
+    "tweet_id": "t_0053",
+    "reply_tweet_id": "r_0053",
+    "resolved": true,
+    "intent": "general_inquiry"
+  }
+]

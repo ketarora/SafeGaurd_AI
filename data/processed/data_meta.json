@@ -1,0 +1,13 @@
+{
+  "source": "bundled_sample",
+  "num_tweets": 106,
+  "num_inbound": 53,
+  "num_outbound": 53,
+  "num_uber_support_outbound": 53,
+  "num_precedents": 53,
+  "brand": "Uber_Support",
+  "date_range": {
+    "earliest": "2020-01-15 10:00:00",
+    "latest": "2020-01-15 10:05:00"
+  }
+}

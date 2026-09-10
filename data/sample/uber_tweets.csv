@@ -1,0 +1,107 @@
+tweet_id,author_id,inbound,created_at,text,response_tweet_id,in_response_to_tweet_id
+t_0001,customer_123,True,2020-01-15 10:00:00,"My promo code SAVE20 didn't work at checkout, charged full price",r_0001,
+r_0001,Uber_Support,False,2020-01-15 10:05:00,Sorry about that! Please DM us your trip details and the promo code — we'll check why it didn't apply.,,t_0001
+t_0002,customer_123,True,2020-01-15 10:00:00,"Applied discount code but still got charged $45, code was supposed to be 50% off",r_0002,
+r_0002,Uber_Support,False,2020-01-15 10:05:00,Sorry about that! Please DM us your trip details and the promo code — we'll check why it didn't apply.,,t_0002
+t_0003,customer_123,True,2020-01-15 10:00:00,Why won't my uber promo apply? Tried 3 times,r_0003,
+r_0003,Uber_Support,False,2020-01-15 10:05:00,Sorry about that! Please DM us your trip details and the promo code — we'll check why it didn't apply.,,t_0003
+t_0004,customer_123,True,2020-01-15 10:00:00,Code UBEREATS25 says invalid but it's from your email campaign,r_0004,
+r_0004,Uber_Support,False,2020-01-15 10:05:00,Sorry about that! Please DM us your trip details and the promo code — we'll check why it didn't apply.,,t_0004
+t_0005,customer_123,True,2020-01-15 10:00:00,Promo not working again!!! This is the 2nd time this month,r_0005,
+r_0005,Uber_Support,False,2020-01-15 10:05:00,Sorry about that! Please DM us your trip details and the promo code — we'll check why it didn't apply.,,t_0005
+t_0006,customer_123,True,2020-01-15 10:00:00,Need a receipt for my trip yesterday for expense report,r_0006,
+r_0006,Uber_Support,False,2020-01-15 10:05:00,You can find receipts in the app under Your Trips → select trip → Receipt. DM us if you need help!,,t_0006
+t_0007,customer_123,True,2020-01-15 10:00:00,Can you email me the invoice for trip on March 15?,r_0007,
+r_0007,Uber_Support,False,2020-01-15 10:05:00,You can find receipts in the app under Your Trips → select trip → Receipt. DM us if you need help!,,t_0007
+t_0008,customer_123,True,2020-01-15 10:00:00,How do I get a receipt? Can't find it in the app,r_0008,
+r_0008,Uber_Support,False,2020-01-15 10:05:00,You can find receipts in the app under Your Trips → select trip → Receipt. DM us if you need help!,,t_0008
+t_0009,customer_123,True,2020-01-15 10:00:00,Business trip receipt needed - trip ID 12345,r_0009,
+r_0009,Uber_Support,False,2020-01-15 10:05:00,You can find receipts in the app under Your Trips → select trip → Receipt. DM us if you need help!,,t_0009
+t_0010,customer_123,True,2020-01-15 10:00:00,Please send receipt to my work email for reimbursement,r_0010,
+r_0010,Uber_Support,False,2020-01-15 10:05:00,You can find receipts in the app under Your Trips → select trip → Receipt. DM us if you need help!,,t_0010
+t_0011,customer_123,True,2020-01-15 10:00:00,"Left my phone in the Uber last night, white Toyota Camry around 11pm",r_0011,
+r_0011,Uber_Support,False,2020-01-15 10:05:00,Sorry to hear that! Use the in-app Lost Item feature (Your Trips → trip → I lost an item) to contact your driver.,,t_0011
+t_0012,customer_123,True,2020-01-15 10:00:00,"Forgot my wallet in the car, driver already left. Trip was to airport",r_0012,
+r_0012,Uber_Support,False,2020-01-15 10:05:00,Sorry to hear that! Use the in-app Lost Item feature (Your Trips → trip → I lost an item) to contact your driver.,,t_0012
+t_0013,customer_123,True,2020-01-15 10:00:00,"I left my keys in the back seat, need to contact driver",r_0013,
+r_0013,Uber_Support,False,2020-01-15 10:05:00,Sorry to hear that! Use the in-app Lost Item feature (Your Trips → trip → I lost an item) to contact your driver.,,t_0013
+t_0014,customer_123,True,2020-01-15 10:00:00,"Lost item - blue backpack left in vehicle, trip ended 30 min ago",r_0014,
+r_0014,Uber_Support,False,2020-01-15 10:05:00,Sorry to hear that! Use the in-app Lost Item feature (Your Trips → trip → I lost an item) to contact your driver.,,t_0014
+t_0015,customer_123,True,2020-01-15 10:00:00,My AirPods are still in the car from my ride this morning,r_0015,
+r_0015,Uber_Support,False,2020-01-15 10:05:00,Sorry to hear that! Use the in-app Lost Item feature (Your Trips → trip → I lost an item) to contact your driver.,,t_0015
+t_0016,customer_123,True,2020-01-15 10:00:00,App keeps crashing when I try to request a ride,r_0016,
+r_0016,Uber_Support,False,2020-01-15 10:05:00,"Sorry for the trouble! Try force-closing the app. If it persists, DM us your device and app version.",,t_0016
+t_0017,customer_123,True,2020-01-15 10:00:00,"Payment method won't save, keeps saying error occurred",r_0017,
+r_0017,Uber_Support,False,2020-01-15 10:05:00,"Sorry for the trouble! Try force-closing the app. If it persists, DM us your device and app version.",,t_0017
+t_0018,customer_123,True,2020-01-15 10:00:00,"GPS showing wrong location, can't get picked up",r_0018,
+r_0018,Uber_Support,False,2020-01-15 10:05:00,"Sorry for the trouble! Try force-closing the app. If it persists, DM us your device and app version.",,t_0018
+t_0019,customer_123,True,2020-01-15 10:00:00,"Can't login to my account, stuck on loading screen",r_0019,
+r_0019,Uber_Support,False,2020-01-15 10:05:00,"Sorry for the trouble! Try force-closing the app. If it persists, DM us your device and app version.",,t_0019
+t_0020,customer_123,True,2020-01-15 10:00:00,"App frozen on splash screen after update, iPhone 14",r_0020,
+r_0020,Uber_Support,False,2020-01-15 10:05:00,"Sorry for the trouble! Try force-closing the app. If it persists, DM us your device and app version.",,t_0020
+t_0021,customer_123,True,2020-01-15 10:00:00,"Charged $67 for a trip that normally costs $25, this is ridiculous",r_0021,
+r_0021,Uber_Support,False,2020-01-15 10:05:00,We understand fare concerns. Please DM us trip details — our team will review the route and charges.,,t_0021
+t_0022,customer_123,True,2020-01-15 10:00:00,"Driver took a longer route on purpose, fare was double what it should be",r_0022,
+r_0022,Uber_Support,False,2020-01-15 10:05:00,We understand fare concerns. Please DM us trip details — our team will review the route and charges.,,t_0022
+t_0023,customer_123,True,2020-01-15 10:00:00,Got charged twice for the same trip!!!,r_0023,
+r_0023,Uber_Support,False,2020-01-15 10:05:00,We understand fare concerns. Please DM us trip details — our team will review the route and charges.,,t_0023
+t_0024,customer_123,True,2020-01-15 10:00:00,"Upfront price was $18, final charge was $34. Why?",r_0024,
+r_0024,Uber_Support,False,2020-01-15 10:05:00,We understand fare concerns. Please DM us trip details — our team will review the route and charges.,,t_0024
+t_0025,customer_123,True,2020-01-15 10:00:00,"This fare is way too high for a 2 mile trip, disputing this",r_0025,
+r_0025,Uber_Support,False,2020-01-15 10:05:00,We understand fare concerns. Please DM us trip details — our team will review the route and charges.,,t_0025
+t_0026,customer_123,True,2020-01-15 10:00:00,Charged $5 cancellation fee but driver never showed up,r_0026,
+r_0026,Uber_Support,False,2020-01-15 10:05:00,Cancellation fees can be confusing. DM us the trip date and we'll review whether the fee applies.,,t_0026
+t_0027,customer_123,True,2020-01-15 10:00:00,Why am I being charged for cancelling when the wait was 20 min?,r_0027,
+r_0027,Uber_Support,False,2020-01-15 10:05:00,Cancellation fees can be confusing. DM us the trip date and we'll review whether the fee applies.,,t_0027
+t_0028,customer_123,True,2020-01-15 10:00:00,"Cancelled because driver was going wrong direction, still got fee",r_0028,
+r_0028,Uber_Support,False,2020-01-15 10:05:00,Cancellation fees can be confusing. DM us the trip date and we'll review whether the fee applies.,,t_0028
+t_0029,customer_123,True,2020-01-15 10:00:00,Unfair cancellation charge - app said driver was 15 min away for 25 min,r_0029,
+r_0029,Uber_Support,False,2020-01-15 10:05:00,Cancellation fees can be confusing. DM us the trip date and we'll review whether the fee applies.,,t_0029
+t_0030,customer_123,True,2020-01-15 10:00:00,Fee for cancelling a ride where driver never arrived at pickup,r_0030,
+r_0030,Uber_Support,False,2020-01-15 10:05:00,Cancellation fees can be confusing. DM us the trip date and we'll review whether the fee applies.,,t_0030
+t_0031,customer_123,True,2020-01-15 10:00:00,Driver was extremely rude and yelled at me,r_0031,
+r_0031,Uber_Support,False,2020-01-15 10:05:00,We're sorry about your experience. Please DM us trip details so we can investigate.,,t_0031
+t_0032,customer_123,True,2020-01-15 10:00:00,"Driver was smoking in the car, very unprofessional",r_0032,
+r_0032,Uber_Support,False,2020-01-15 10:05:00,We're sorry about your experience. Please DM us trip details so we can investigate.,,t_0032
+t_0033,customer_123,True,2020-01-15 10:00:00,"Driver took a phone call the entire ride on speaker, ignored me",r_0033,
+r_0033,Uber_Support,False,2020-01-15 10:05:00,We're sorry about your experience. Please DM us trip details so we can investigate.,,t_0033
+t_0034,customer_123,True,2020-01-15 10:00:00,"Driver had terrible attitude, refused to help with bags",r_0034,
+r_0034,Uber_Support,False,2020-01-15 10:05:00,We're sorry about your experience. Please DM us trip details so we can investigate.,,t_0034
+t_0035,customer_123,True,2020-01-15 10:00:00,"Most disrespectful driver I've ever had, complained about the tip",r_0035,
+r_0035,Uber_Support,False,2020-01-15 10:05:00,We're sorry about your experience. Please DM us trip details so we can investigate.,,t_0035
+t_0036,customer_123,True,2020-01-15 10:00:00,Driver ran a red light and I almost got hurt this is NOT ok,r_0036,
+r_0036,Uber_Support,False,2020-01-15 10:05:00,We're very sorry. Your safety is our priority — a specialist will reach out shortly.,,t_0036
+t_0037,customer_123,True,2020-01-15 10:00:00,"Felt unsafe - driver was driving recklessly, swerving between lanes",r_0037,
+r_0037,Uber_Support,False,2020-01-15 10:05:00,We're very sorry. Your safety is our priority — a specialist will reach out shortly.,,t_0037
+t_0038,customer_123,True,2020-01-15 10:00:00,"Driver made me feel physically threatened, would not unlock doors",r_0038,
+r_0038,Uber_Support,False,2020-01-15 10:05:00,We're very sorry. Your safety is our priority — a specialist will reach out shortly.,,t_0038
+t_0039,customer_123,True,2020-01-15 10:00:00,Got into an accident because driver was texting while driving,r_0039,
+r_0039,Uber_Support,False,2020-01-15 10:05:00,We're very sorry. Your safety is our priority — a specialist will reach out shortly.,,t_0039
+t_0040,customer_123,True,2020-01-15 10:00:00,"Driver harassed me during the ride, I was scared for my safety",r_0040,
+r_0040,Uber_Support,False,2020-01-15 10:05:00,We're very sorry. Your safety is our priority — a specialist will reach out shortly.,,t_0040
+t_0041,customer_123,True,2020-01-15 10:00:00,"Unsafe driving - nearly hit a pedestrian, I'm reporting this",r_0041,
+r_0041,Uber_Support,False,2020-01-15 10:05:00,We're very sorry. Your safety is our priority — a specialist will reach out shortly.,,t_0041
+t_0042,customer_123,True,2020-01-15 10:00:00,"Driver appeared intoxicated, I got out early because I was afraid",r_0042,
+r_0042,Uber_Support,False,2020-01-15 10:05:00,We're very sorry. Your safety is our priority — a specialist will reach out shortly.,,t_0042
+t_0043,customer_123,True,2020-01-15 10:00:00,"Sexual harassment from driver during ride, this is assault",r_0043,
+r_0043,Uber_Support,False,2020-01-15 10:05:00,We're very sorry. Your safety is our priority — a specialist will reach out shortly.,,t_0043
+t_0044,customer_123,True,2020-01-15 10:00:00,"Locked out of my account, can't reset password",r_0044,
+r_0044,Uber_Support,False,2020-01-15 10:05:00,Sorry you're locked out. Please DM us the email on your account and we'll help restore access.,,t_0044
+t_0045,customer_123,True,2020-01-15 10:00:00,"My account was deactivated for no reason, need it back",r_0045,
+r_0045,Uber_Support,False,2020-01-15 10:05:00,Sorry you're locked out. Please DM us the email on your account and we'll help restore access.,,t_0045
+t_0046,customer_123,True,2020-01-15 10:00:00,"Banned from uber with no explanation, I did nothing wrong",r_0046,
+r_0046,Uber_Support,False,2020-01-15 10:05:00,Sorry you're locked out. Please DM us the email on your account and we'll help restore access.,,t_0046
+t_0047,customer_123,True,2020-01-15 10:00:00,Can't access account after phone number change,r_0047,
+r_0047,Uber_Support,False,2020-01-15 10:05:00,Sorry you're locked out. Please DM us the email on your account and we'll help restore access.,,t_0047
+t_0048,customer_123,True,2020-01-15 10:00:00,"Account suspended - I rely on Uber for work, please help",r_0048,
+r_0048,Uber_Support,False,2020-01-15 10:05:00,Sorry you're locked out. Please DM us the email on your account and we'll help restore access.,,t_0048
+t_0049,customer_123,True,2020-01-15 10:00:00,How do I schedule a ride in advance?,r_0049,
+r_0049,Uber_Support,False,2020-01-15 10:05:00,Thanks for reaching out! DM us for account-specific help.,,t_0049
+t_0050,customer_123,True,2020-01-15 10:00:00,Thanks for the great service last night!,r_0050,
+r_0050,Uber_Support,False,2020-01-15 10:05:00,Thanks for reaching out! DM us for account-specific help.,,t_0050
+t_0051,customer_123,True,2020-01-15 10:00:00,Do you operate in Portland Oregon?,r_0051,
+r_0051,Uber_Support,False,2020-01-15 10:05:00,Thanks for reaching out! DM us for account-specific help.,,t_0051
+t_0052,customer_123,True,2020-01-15 10:00:00,What's the difference between UberX and Comfort?,r_0052,
+r_0052,Uber_Support,False,2020-01-15 10:05:00,Thanks for reaching out! DM us for account-specific help.,,t_0052
+t_0053,customer_123,True,2020-01-15 10:00:00,Can I add a stop during my ride?,r_0053,
+r_0053,Uber_Support,False,2020-01-15 10:05:00,Thanks for reaching out! DM us for account-specific help.,,t_0053
