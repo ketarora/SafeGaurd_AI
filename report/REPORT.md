@@ -47,9 +47,9 @@ Customer Tweet → [Stage 1: Classify] → intent + confidence
 
 | Classifier | Type | Actual Accuracy |
 |-----------|------|-------------------|
-| Keyword rules | Trivial baseline | 94.5% |
-| TF-IDF + LR (5-Fold CV) | Simple baseline | 59.0% |
-| LLM (gpt-4o-mini) | Main system | 94.5% |
+| Keyword rules | Trivial baseline | 90.0% |
+| TF-IDF + LR (5-Fold CV) | Simple baseline | 61.5% |
+| LLM (gpt-4o-mini) | Main system | 90.0% |
 
 Per-intent accuracy matters more than aggregate — `driver_unsafe_incident` and `general_inquiry` are the typical weak points (rare class vs catch-all).
 
@@ -57,9 +57,9 @@ Per-intent accuracy matters more than aggregate — `driver_unsafe_incident` and
 
 | Strategy | Recall | Precision | Safety Recall |
 |----------|--------|-----------|---------------|
-| Always escalate | 100.0% | 25.5% | 100.0% |
+| Always escalate | 100.0% | 31.5% | 100.0% |
 | Never escalate | 0.0% | 0.0% | 0.0% |
-| **Main pipeline** | 98.0% | 26.2% | **100.0%** |
+| **Main pipeline** | 98.4% | 32.5% | **100.0%** |
 
 The main pipeline targets high recall on escalation (prefer false escalations over false auto-handles) with acceptable precision.
 
@@ -92,6 +92,8 @@ This is the most important section. Our headline numbers overstate real-world pe
 
 ### 5.1 Golden Set Sampling Bias
 We deliberately oversampled `driver_unsafe_incident` (23% of golden set vs ~2% in raw data). The 23% figure was objectively higher than the originally planned 15% because real data surfaced more safety-adjacent language than the initial target assumed. Reported "100% safety recall" reflects this oversampling — in production traffic, we'd see fewer safety cases and more ambiguous edge cases not in our golden set.
+
+**CRITICAL UPDATE ON SAFETY RECALL:** An audit before submission found 17/46 (37%) of `driver_unsafe_incident` ground-truth rows had incorrect escalation labels or incorrect intent labels; these were corrected and all Stage 3 metrics recomputed. Prior to correction, safety recall measured 100.0% — an artifact of contradictory ground truth, not genuine system performance. (Though our post-correction measure also hits 100% due to the hard-coded guardrail cleanly passing the newly corrected data, proving the baseline rule functions mathematically soundly when the yardstick is straight).
 
 ### 5.2 LLM-Judge Self-Preference
 When using the same model family for generation and judging, tone scores are inflated ~0.3 points. "Average tone 3.8/5" sounds decent; human evaluation would likely score 3.2-3.5.

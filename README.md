@@ -108,8 +108,8 @@ See `report/decision_log.md` for all 15 decisions.
 
 | Metric | Main Pipeline | Trivial Baseline | Simple Baseline |
 |--------|--------------|------------------|-----------------|
-| Intent accuracy | 94.5% (LLM) | 94.5% (keyword) | 59.0% (TF-IDF) |
-| Escalation recall | 98.0% | 100.0% (always escalate) | 0.0% (never escalate) |
+| Intent accuracy | 90.0% (LLM) | 90.0% (keyword) | 61.5% (TF-IDF) |
+| Escalation recall | 98.4% | 100.0% (always escalate) | 0.0% (never escalate) |
 | Safety recall | **100.0%** | 100.0% | 0.0% |
 
 Read `report/REPORT.md` § "What Is Misleading About My Headline Number?" before quoting any of these.
