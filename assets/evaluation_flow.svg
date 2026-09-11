@@ -1,0 +1,52 @@
+<svg width="1000" height="300" viewBox="0 0 1000 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1000" height="300" fill="#ffffff" rx="12"/>
+  
+  <defs>
+    <pattern id="dotgrid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#e5e7eb"/>
+    </pattern>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000000" flood-opacity="0.05"/>
+    </filter>
+  </defs>
+  <rect width="1000" height="300" fill="url(#dotgrid)" rx="12"/>
+
+  <!-- Paths -->
+  <path d="M 220 150 L 320 150" stroke="#d1d5db" stroke-width="2" stroke-dasharray="4 4"/>
+  <path d="M 520 150 L 620 150" stroke="#d1d5db" stroke-width="2"/>
+  <path d="M 820 150 L 870 150" stroke="#d1d5db" stroke-width="2"/>
+
+  <!-- Arrows -->
+  <polygon points="320,150 310,145 310,155" fill="#d1d5db"/>
+  <polygon points="620,150 610,145 610,155" fill="#d1d5db"/>
+  <polygon points="870,150 860,145 860,155" fill="#d1d5db"/>
+
+  <!-- Kaggle Data -->
+  <g transform="translate(60, 100)" filter="url(#shadow)">
+    <rect width="160" height="100" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+    <text x="80" y="45" font-family="system-ui" font-weight="700" font-size="14" fill="#111827" text-anchor="middle">Kaggle Dataset</text>
+    <text x="80" y="65" font-family="system-ui" font-weight="500" font-size="12" fill="#6b7280" text-anchor="middle">3 Million Rows</text>
+  </g>
+
+  <!-- Stratified Sampling -->
+  <g transform="translate(320, 100)" filter="url(#shadow)">
+    <rect width="200" height="100" rx="8" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+    <rect x="0" y="0" width="200" height="30" rx="8" fill="#f9fafb"/>
+    <text x="100" y="20" font-family="system-ui" font-weight="700" font-size="12" fill="#111827" text-anchor="middle">Stratified Sampling</text>
+    <text x="100" y="55" font-family="system-ui" font-weight="600" font-size="13" fill="#10B981" text-anchor="middle">23% Safety Oversample</text>
+    <text x="100" y="75" font-family="system-ui" font-weight="600" font-size="13" fill="#3b82f6" text-anchor="middle">Blind Re-label Audit</text>
+  </g>
+
+  <!-- Golden Set -->
+  <g transform="translate(620, 100)" filter="url(#shadow)">
+    <rect width="200" height="100" rx="8" fill="#111827"/>
+    <text x="100" y="45" font-family="system-ui" font-weight="700" font-size="16" fill="#ffffff" text-anchor="middle">The Golden Set</text>
+    <text x="100" y="65" font-family="system-ui" font-weight="500" font-size="13" fill="#9ca3af" text-anchor="middle">200 Hand-Labeled Rows</text>
+  </g>
+
+  <!-- Output Metrics -->
+  <g transform="translate(870, 130)">
+    <circle cx="10" cy="20" r="20" fill="#10B981" fill-opacity="0.2"/>
+    <circle cx="10" cy="20" r="10" fill="#10B981"/>
+  </g>
+</svg>

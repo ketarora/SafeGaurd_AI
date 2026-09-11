@@ -1,6 +1,7 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/ketarora/SafeGaurd_AI/main/assets/hero_banner.svg" alt="SafeGuard AI Banner" width="100%"/>
-</p>
+![SafeGuard AI Banner](./assets/hero_banner.svg)
+
+**Welcome to the SafeGuard AI Core Operations Repository.**  
+*This project provides a robust, math-backed neural pipeline to autonomously route, classify, and intelligently resolve customer support telemetry.*
 
 <p align="center">
   <b>Hiver SDE Intern Take-Home</b><br>
@@ -33,9 +34,7 @@ Given an inbound customer support payload from `@Uber_Support`, this agentic pip
 We didn't just build a pipeline; we built an ultra-premium, interactive operations console that traces neural payload execution in real-time.
 
 <br>
-<p align="center">
-  <img src="https://raw.githubusercontent.com/ketarora/SafeGaurd_AI/main/assets/demo_console.png" alt="Ops Console Demo" width="100%"/>
-</p>
+![Ops Console Demo](./assets/demo_console.png)
 <br>
 
 Run it locally via the demo CLI or web app to test arbitrary customer complaints and trace the exact logic graph.
@@ -44,9 +43,7 @@ Run it locally via the demo CLI or web app to test arbitrary customer complaints
 
 ## 🧠 Architecture Flow
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/ketarora/SafeGaurd_AI/main/assets/architecture.svg" alt="SafeGuard AI Architecture Flowchart" width="100%"/>
-</p>
+![SafeGuard AI Architecture Flowchart](./assets/architecture.svg)
 
 ---
 
@@ -81,9 +78,9 @@ python demo/app.py
 
 We don't trust our pipeline. We prove it computationally against a 200-row blind-labeled dataset holding real Kaggle Support data.
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/ketarora/SafeGaurd_AI/main/assets/metrics_hud.svg" alt="Metrics Dashboard HUD" width="100%"/>
-</p>
+![Evaluation Harness Flowchart](./assets/evaluation_flow.svg)
+
+![Metrics Dashboard HUD](./assets/metrics_hud.svg)
 
 | Metric | Main Pipeline | Trivial Baseline | Simple Baseline (CV) |
 |--------|--------------|------------------|-----------------|
