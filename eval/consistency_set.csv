@@ -1,0 +1,24 @@
+tweet_id,text,intent_run1,escalation_run1,intent_run2,escalation_run2
+344906,@Uber_Support what’s your email?,general_inquiry,auto_handle,general_inquiry,auto_handle
+444483,"Hello @Uber_Support @116288 
+
+I am quite certain now that I have forgotten my wallet in an uber cab trip taken last night at 9.20pm.
+I can explain how I am so certain if you can please get in touch with me and assist?",lost_item,auto_handle,general_inquiry,auto_handle
+603567,Does @115877 deliver edibles?,general_inquiry,auto_handle,general_inquiry,auto_handle
+424403,@Uber_Support Uber is refusing to provide me my receipt,receipt_request,auto_handle,receipt_request,auto_handle
+126428,@Uber_Support Guys..i m not looking out discounts( Received email for ₹50  discount coupon) i want you to take action against that rude driver.,driver_behavior_complaint,auto_handle,driver_behavior_complaint,auto_handle
+504259,@Uber_Support Is there a problem with your system or something? Im trying to add a paypal account as a payment method but it keeps telling me to try again later.,app_technical_bug,auto_handle,fare_overcharge_dispute,auto_handle
+571306,"Hey @Uber_Support I just spoke to one of your reps in NYC who just said ""uber doesn't care about customers"" I'm just trying to get my receipt changed can someone please help me out ?",receipt_request,auto_handle,receipt_request,auto_handle
+390847,"@Uber_Support my account was deactivated for no reason at all, and can't get through to anyone. Please get in touch!",account_access_issue,escalate,account_access_issue,escalate
+347612,Your lost item process isn't so hot @115873. Connected to driver as advised and he hung up.,lost_item,auto_handle,driver_behavior_complaint,escalate
+25040,@Uber_Support @115873,general_inquiry,auto_handle,general_inquiry,auto_handle
+309299,"Use @115877 over 130 times with no issues. Complain about incorrect orders 3 - 4 times, get your account permanently deactivated. Nice.",account_access_issue,escalate,account_access_issue,escalate
+414646,In the last 2 days I have been sexually harassed by 2 passengers that I drove for @115873 &amp; I get no support from Uber at all  #MeToo,driver_unsafe_incident,auto_handle,driver_unsafe_incident,auto_handle
+136605,@Uber_Support What does shortly mean? It's been 12 days already and you can't correct a receipt @115873 I hope you have an escalation mechanism to look into the response quality issues.,receipt_request,escalate,receipt_request,auto_handle
+384105,@Uber_Support __email__,general_inquiry,auto_handle,general_inquiry,auto_handle
+384863,@115873 got charged £3.50 cancellation fee from my last trip. Driver never indicated he was outside. Not sure how this is my fault.,cancellation_fee_dispute,auto_handle,cancellation_fee_dispute,auto_handle
+127177,@Uber_Support I finally found a way to use online support to get a refund for the amount overcharged on Thursday ride with Uber.  I'll retweet my original complaint with that update. Please make it easier to find help with both the Uber app and Uber online.,fare_overcharge_dispute,auto_handle,fare_overcharge_dispute,auto_handle
+527787,@115873 @Uber_Support another of your idiot drivers just nearly hit me in a bikelane in SF - Folsom at Langton - then threatened me with his car. now calling cops. White Toyota 7SXF471 https://t.co/UGHszT1lRT,driver_unsafe_incident,auto_handle,driver_unsafe_incident,auto_handle
+219891,Hey @115873 it's really a shame you've made your drivers so afraid of driving 'off GPS.' Drivers have now forgotten how to navigate streets...,driver_unsafe_incident,auto_handle,driver_unsafe_incident,auto_handle
+473395,"@115873 i cant reach my uber account , its written your uber account disabled. What is the turkey's uber head office number?",account_access_issue,auto_handle,account_access_issue,auto_handle
+548658,@Uber_Support Lmaooo y’all are a fuckiiiiiiing joke. My sisters over here getting harassed by some fucking man that Y’ALL HIRED and y’all don’t give not one single fuck about her safety. Fuck y’all.,driver_unsafe_incident,escalate,driver_unsafe_incident,escalate

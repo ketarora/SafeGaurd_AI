@@ -109,7 +109,7 @@ Our 100% safety recall is largely attributable to the deterministic keyword guar
 
 ## 6. What I'd Do With One More Week
 
-1. **Extract golden set from real Kaggle Uber_Support tweets** — replace templates with actual noisy data
+1. **Expand Golden Set Manually to 1,000 Rows** — A larger evaluation base to achieve rigorous validation on extreme minority classes (like lost items).
 2. **Cross-model judging** — Claude judges GPT output to eliminate self-preference bias
 3. **Multi-label classification** for compound tweets ("app bug + refund + rude driver")
 4. **Calibrated confidence** — Platt scaling on classifier probabilities; tune escalation thresholds on a held-out fold
