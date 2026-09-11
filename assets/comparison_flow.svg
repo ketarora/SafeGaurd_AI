@@ -17,9 +17,9 @@
   <text x="60" y="90" font-family="system-ui" font-weight="500" font-size="12" fill="#991b1b">High risk of hallucination and dangerous safety resolution bypasses.</text>
 
   <!-- Flow Standard -->
-  <path d="M 120 140 L 400 140 L 680 140" stroke="#fca5a5" stroke-width="3" stroke-dasharray="8 8"/>
-  <polygon points="400,140 390,135 390,145" fill="#fca5a5"/>
-  <polygon points="680,140 670,135 670,145" fill="#fca5a5"/>
+  <path d="M 180 140 L 720 140" stroke="#fca5a5" stroke-width="3" stroke-dasharray="8 8"/>
+  <polygon points="420,140 410,135 410,145" fill="#fca5a5"/>
+  <polygon points="720,140 710,135 710,145" fill="#fca5a5"/>
   
   <g transform="translate(60, 115)">
     <rect width="120" height="50" rx="8" fill="#ffffff" stroke="#f87171" stroke-width="1.5"/>
@@ -44,13 +44,13 @@
   <text x="60" y="360" font-family="system-ui" font-weight="500" font-size="12" fill="#065f46">Deterministic safety guardrails with strict retrieval-grounded generation.</text>
 
   <!-- Flow SafeGuard -->
-  <path d="M 120 430 L 250 430" stroke="#6ee7b7" stroke-width="3"/>
-  <path d="M 410 430 L 520 430" stroke="#6ee7b7" stroke-width="3"/>
-  <path d="M 660 430 L 760 430" stroke="#6ee7b7" stroke-width="3"/>
+  <path d="M 180 428 L 260 428" stroke="#6ee7b7" stroke-width="3"/>
+  <path d="M 400 428 L 540 428" stroke="#6ee7b7" stroke-width="3"/>
+  <path d="M 650 428 L 780 428" stroke="#6ee7b7" stroke-width="3"/>
   
-  <polygon points="250,430 240,425 240,435" fill="#6ee7b7"/>
-  <polygon points="520,430 510,425 510,435" fill="#6ee7b7"/>
-  <polygon points="760,430 750,425 750,435" fill="#6ee7b7"/>
+  <polygon points="260,428 250,423 250,433" fill="#6ee7b7"/>
+  <polygon points="540,428 530,423 530,433" fill="#6ee7b7"/>
+  <polygon points="780,428 770,423 770,433" fill="#6ee7b7"/>
 
   <!-- Input -->
   <g transform="translate(60, 405)">
