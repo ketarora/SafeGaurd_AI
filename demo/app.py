@@ -16,642 +16,550 @@ HTML = """
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SafeGuard AI — Pipeline Inspector</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>SafeGuard AI — Ops Console</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        /* ── Tokens ─────────────────────────────────────────── */
+        /* ═══ Core Design System ═══ */
         :root {
-            --bg:           #ffffff;
-            --surface:      #fafafa;
-            --surface-2:    #f4f4f5;
-            --border:       #e4e4e7;
-            --border-strong: #d4d4d8;
-            --text-1:       #09090b;
-            --text-2:       #3f3f46;
-            --text-3:       #71717a;
-            --text-muted:   #a1a1aa;
-            --black:        #09090b;
-            --white:        #ffffff;
-            --green:        #16a34a;
-            --green-bg:     #f0fdf4;
-            --green-border: #bbf7d0;
-            --red:          #dc2626;
-            --red-bg:       #fef2f2;
-            --red-border:   #fecaca;
-            --amber:        #d97706;
-            --amber-bg:     #fffbeb;
-            --blue:         #2563eb;
+            --bg-master:      #ffffff;
+            --bg-panel:       #fcfcfc;
+            --bg-card:        #ffffff;
+            
+            --border-subtle:  #f3f4f6;
+            --border-base:    #e5e7eb;
+            --border-hover:   #d1d5db;
+            --border-strong:  #111827;
+            
+            --text-heading:   #111827;
+            --text-body:      #374151;
+            --text-muted:     #6b7280;
+            --text-ghost:     #9ca3af;
+            
+            --focus-ring:     rgba(17, 24, 39, 0.1);
+            
+            --safe-dot:       #10b981;
+            --safe-bg:        #ecfdf5;
+            --safe-border:    #a7f3d0;
+            --safe-text:      #047857;
+            
+            --warn-dot:       #f59e0b;
+            --warn-text:      #b45309;
+            
+            --critical-dot:   #ef4444;
+            --critical-bg:    #fef2f2;
+            --critical-border:#fecaca;
+            --critical-text:  #b91c1c;
+
+            --shadow-sm:      0 1px 2px rgba(0, 0, 0, 0.04);
+            --shadow-md:      0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-lg:      0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+            --shadow-float:   0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Inter', -apple-system, system-ui, sans-serif;
-            background: var(--bg);
-            color: var(--text-1);
-            min-height: 100vh;
+            background-color: var(--bg-master);
+            color: var(--text-body);
+            height: 100vh;
+            overflow: hidden;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* ── Shell ──────────────────────────────────────────── */
-        .shell {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 60px 24px 100px;
-        }
-
-        /* ── Header ─────────────────────────────────────────── */
-        .header {
-            margin-bottom: 48px;
-            text-align: center;
-        }
-
-        .brand-mark {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        .brand-icon {
-            width: 32px; height: 32px;
-            background: var(--black);
-            border-radius: 8px;
-            display: flex; align-items: center; justify-content: center;
-        }
-
-        .brand-mark h1 {
-            font-size: 20px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            color: var(--black);
-        }
-
-        .header .subtitle {
-            font-size: 14px;
-            color: var(--text-3);
-            line-height: 1.5;
-            max-width: 480px;
-            margin: 0 auto;
-        }
-
-        /* ── Input Section ──────────────────────────────────── */
-        .input-section {
-            margin-bottom: 40px;
-        }
-
-        .input-box {
-            border: 1.5px solid var(--border);
-            border-radius: 14px;
-            overflow: hidden;
-            transition: border-color 0.2s;
-        }
-
-        .input-box:focus-within {
-            border-color: var(--black);
-        }
-
-        textarea {
-            width: 100%;
-            min-height: 100px;
-            border: none;
-            padding: 18px 20px 12px;
-            font-family: 'Inter', sans-serif;
-            font-size: 15px;
-            color: var(--text-1);
-            resize: none;
-            background: transparent;
-            line-height: 1.6;
-        }
-
-        textarea::placeholder { color: var(--text-muted); }
-        textarea:focus { outline: none; }
-
-        .input-bar {
+        /* ═══ Splash Screen Loader ═══ */
+        #splash-screen {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #fff;
+            z-index: 9999;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 12px 12px 16px;
-            gap: 10px;
-        }
-
-        .chips {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-            flex: 1;
-        }
-
-        .chip {
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--text-3);
-            background: var(--surface-2);
-            border: 1px solid transparent;
-            border-radius: 100px;
-            padding: 5px 12px;
-            cursor: pointer;
-            transition: all 0.15s;
-            user-select: none;
-        }
-
-        .chip:hover {
-            color: var(--text-1);
-            border-color: var(--border);
-            background: var(--surface);
-        }
-
-        .btn-run {
-            background: var(--black);
-            color: var(--white);
-            border: none;
-            height: 36px;
-            padding: 0 20px;
-            border-radius: 100px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.15s;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-
-        .btn-run:hover { opacity: 0.8; }
-        .btn-run:disabled { opacity: 0.35; cursor: default; }
-
-        /* ── Loader ─────────────────────────────────────────── */
-        .loader {
-            display: none;
-            text-align: center;
-            padding: 48px 0;
-        }
-
-        .loader.active { display: block; }
-
-        @keyframes bounce {
-            0%, 80%, 100% { transform: scale(0); }
-            40% { transform: scale(1); }
-        }
-
-        .bounce-dots {
-            display: inline-flex;
-            gap: 5px;
-            margin-bottom: 12px;
-        }
-
-        .bounce-dots span {
-            width: 8px; height: 8px;
-            background: var(--black);
-            border-radius: 50%;
-            animation: bounce 1.4s ease-in-out infinite;
-        }
-
-        .bounce-dots span:nth-child(1) { animation-delay: -0.32s; }
-        .bounce-dots span:nth-child(2) { animation-delay: -0.16s; }
-
-        .loader p {
-            font-size: 13px;
-            color: var(--text-muted);
-        }
-
-        /* ── Divider ────────────────────────────────────────── */
-        .divider {
-            height: 1px;
-            background: var(--border);
-            margin: 8px 0 32px;
-        }
-
-        .section-title {
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--text-muted);
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        /* ── Step Cards ─────────────────────────────────────── */
-        .step {
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            margin-bottom: 12px;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(12px);
-            transition: opacity 0.45s ease, transform 0.45s ease;
-        }
-
-        .step.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .step-top {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 16px 20px;
-            background: var(--surface);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .step-badge {
-            width: 24px; height: 24px;
-            border-radius: 6px;
-            background: var(--black);
-            color: var(--white);
-            font-size: 12px;
-            font-weight: 700;
-            display: flex; align-items: center; justify-content: center;
-            font-family: 'JetBrains Mono', monospace;
-            flex-shrink: 0;
-        }
-
-        .step-top h3 {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-1);
-            flex: 1;
-        }
-
-        .step-body {
-            padding: 16px 20px;
-        }
-
-        /* ── Rows ───────────────────────────────────────────── */
-        .row {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            padding: 11px 0;
-        }
-
-        .row + .row {
-            border-top: 1px solid var(--surface-2);
-        }
-
-        .row-key {
-            font-size: 13px;
-            color: var(--text-3);
-        }
-
-        .row-val {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-1);
-            font-family: 'JetBrains Mono', monospace;
-            text-align: right;
-            max-width: 55%;
-        }
-
-        .row-val.prose {
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-            color: var(--text-2);
-            font-size: 13px;
-            line-height: 1.55;
-        }
-
-        /* ── Confidence ─────────────────────────────────────── */
-        .conf-wrap {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .conf-track {
-            width: 80px; height: 5px;
-            background: var(--surface-2);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .conf-bar {
-            height: 100%;
-            border-radius: 10px;
-            transition: width 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        /* ── Precedents ─────────────────────────────────────── */
-        .prec {
-            display: flex;
-            gap: 14px;
-            padding: 14px 16px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            margin-bottom: 8px;
-            transition: border-color 0.15s;
-        }
-
-        .prec:hover { border-color: var(--border-strong); }
-
-        .prec-score {
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 600;
-            font-size: 13px;
-            color: var(--green);
-            padding-top: 1px;
-            flex-shrink: 0;
-        }
-
-        .prec-id {
-            font-size: 11px;
-            color: var(--text-muted);
-            font-family: 'JetBrains Mono', monospace;
-            margin-bottom: 3px;
-        }
-
-        .prec-text {
-            font-size: 13px;
-            color: var(--text-2);
-            line-height: 1.5;
-        }
-
-        .prec-empty {
-            text-align: center;
-            padding: 24px 16px;
-            color: var(--text-muted);
-            font-size: 13px;
-            border: 1px dashed var(--border);
-            border-radius: 10px;
-        }
-
-        /* ── Draft ──────────────────────────────────────────── */
-        .draft-wrap {
-            margin-top: 16px;
-        }
-
-        .draft-label {
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--text-muted);
-            letter-spacing: 0.3px;
-            margin-bottom: 8px;
-        }
-
-        .draft-box {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-left: 3px solid var(--black);
-            border-radius: 8px;
-            padding: 16px 18px;
-            font-size: 14px;
-            color: var(--text-2);
-            line-height: 1.7;
-        }
-
-        /* ── Pills ──────────────────────────────────────────── */
-        .pill {
-            font-size: 11px;
-            font-weight: 600;
-            padding: 3px 10px;
-            border-radius: 6px;
-        }
-
-        .pill-escalate {
-            background: var(--red-bg);
-            color: var(--red);
-            border: 1px solid var(--red-border);
-        }
-
-        .pill-auto {
-            background: var(--green-bg);
-            color: var(--green);
-            border: 1px solid var(--green-border);
-        }
-
-        /* ── Safety alert ───────────────────────────────────── */
-        .safety-banner {
-            display: flex;
-            gap: 10px;
-            align-items: flex-start;
-            padding: 14px 16px;
-            background: var(--red-bg);
-            border: 1px solid var(--red-border);
-            border-radius: 8px;
-            margin-bottom: 12px;
-        }
-
-        .safety-banner svg { flex-shrink: 0; color: var(--red); margin-top: 1px; }
-
-        .safety-banner p {
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--red);
-            line-height: 1.4;
-        }
-
-        /* ── Grounding tag ──────────────────────────────────── */
-        .ground-tag {
-            font-size: 12px;
-            font-weight: 600;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .ground-strong { color: var(--green); }
-        .ground-moderate { color: var(--amber); }
-        .ground-weak, .ground-none { color: var(--red); }
-
-        /* ── Architecture footer ────────────────────────────── */
-        .arch {
-            display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 0;
-            margin-top: 48px;
-            padding: 18px 20px;
-            border-top: 1px solid var(--border);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        #splash-screen.hide {
+            opacity: 0;
+            transform: scale(1.05);
+            pointer-events: none;
         }
 
-        .arch-node {
+        .splash-logo {
+            width: 64px; height: 64px;
+            background: var(--text-heading);
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 24px;
+            animation: floatLogo 3s ease-in-out infinite;
+            box-shadow: var(--shadow-float);
+        }
+
+        .splash-logo svg {
+            width: 32px; height: 32px;
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: drawSvg 1.5s ease-out forwards;
+        }
+
+        .splash-text h1 {
+            font-size: 24px; font-weight: 800; letter-spacing: -0.03em; color: var(--text-heading);
+            margin-bottom: 8px; text-align: center;
+            opacity: 0; animation: fadeUp 0.6s ease-out 0.4s forwards;
+        }
+
+        .splash-text p {
+            font-size: 14px; color: var(--text-muted); text-align: center; max-width: 400px; line-height: 1.5;
+            opacity: 0; animation: fadeUp 0.6s ease-out 0.6s forwards;
+        }
+        
+        .start-btn {
+            margin-top: 32px;
+            background: var(--text-heading);
+            color: #fff; border: none; padding: 12px 24px; border-radius: 8px;
+            font-size: 14px; font-weight: 600; cursor: pointer;
+            opacity: 0; animation: fadeUp 0.6s ease-out 1s forwards;
+            transition: all 0.2s; box-shadow: var(--shadow-md);
+        }
+        .start-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+
+        @keyframes floatLogo { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+        @keyframes drawSvg { to { stroke-dashoffset: 0; } }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ═══ App Skeleton ═══ */
+        .app-layout {
+            display: grid;
+            grid-template-columns: 440px 1fr;
+            height: 100vh;
+        }
+
+        /* ═══ LEFT PANEL ═══ */
+        .panel-nav {
+            background-color: var(--bg-master);
+            border-right: 1px solid var(--border-base);
             display: flex;
-            align-items: center;
-            gap: 6px;
+            flex-direction: column;
+            z-index: 10;
         }
 
-        .arch-dot {
-            width: 7px; height: 7px;
-            border-radius: 50%;
+        .nav-header { padding: 32px 32px 16px; }
+        .brand-lockup { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+        .logo-box { width: 32px; height: 32px; background: var(--text-heading); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .brand-title { font-size: 18px; font-weight: 700; color: var(--text-heading); letter-spacing: -0.02em; }
+        .nav-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+        .input-section { padding: 16px 32px; flex: 1; display: flex; flex-direction: column; }
+        .editor-container {
+            background: var(--bg-card); border: 1px solid var(--border-base); border-radius: 12px; box-shadow: var(--shadow-sm); transition: all 0.2s ease; display: flex; flex-direction: column;
+        }
+        .editor-container:focus-within { border-color: var(--border-strong); box-shadow: 0 0 0 3px var(--focus-ring); }
+        .editor-header { padding: 12px 16px; border-bottom: 1px solid var(--border-subtle); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); display: flex; align-items: center; gap: 6px; }
+        .pulse-dot { width: 6px; height: 6px; background: var(--safe-dot); border-radius: 50%; box-shadow: 0 0 0 2px var(--safe-bg); }
+        textarea.editor-input { width: 100%; height: 120px; border: none; padding: 16px; font-family: inherit; font-size: 14px; color: var(--text-heading); resize: none; background: transparent; line-height: 1.6; }
+        textarea.editor-input:focus { outline: none; }
+        .editor-toolbar { padding: 12px 16px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; background: #fafafa; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; }
+        .demo-chip-group { display: flex; gap: 6px; }
+        .demo-chip { background: var(--bg-card); border: 1px solid var(--border-base); padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 500; color: var(--text-body); cursor: pointer; transition: all 0.15s; }
+        .demo-chip:hover { border-color: var(--border-hover); color: var(--text-heading); }
+        .btn-primary { background: var(--text-heading); color: #fff; border: none; height: 32px; padding: 0 16px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
+        .btn-primary:hover { background: #000; transform: translateY(-1px); }
+
+        .arch-map { padding: 32px; margin-top: auto; border-top: 1px solid var(--border-subtle); background: var(--bg-panel); }
+        .arch-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-ghost); margin-bottom: 20px; }
+        .arch-list { display: flex; flex-direction: column; gap: 0; position: relative; }
+        .arch-list::before { content: ''; position: absolute; left: 10px; top: 12px; bottom: 12px; width: 2px; background: var(--border-base); z-index: 0; }
+        .arch-node { display: flex; align-items: center; gap: 16px; padding: 12px 0; position: relative; z-index: 1; }
+        .node-circle { width: 22px; height: 22px; border-radius: 50%; background: var(--bg-card); border: 2px solid var(--text-ghost); display: flex; align-items: center; justify-content: center; transition: all 0.4s; }
+        .node-circle.active { border-color: var(--text-heading); background: var(--text-heading); }
+        .node-circle.active::after { content: ''; width: 6px; height: 6px; background: #fff; border-radius: 50%; }
+        .node-label { font-size: 13px; font-weight: 500; color: var(--text-body); transition: all 0.4s; }
+        .node-label.active { font-weight: 600; color: var(--text-heading); }
+        .node-meta { margin-left: auto; font-size: 11px; font-family: 'JetBrains Mono', monospace; color: var(--text-ghost); background: var(--border-subtle); padding: 2px 6px; border-radius: 4px; }
+
+
+        /* ═══ RIGHT PANEL ═══ */
+        .panel-content { background-color: var(--bg-panel); overflow-y: auto; padding: 0; position: relative; }
+        .content-scroll-area { padding: 48px; max-width: 800px; margin: 0 auto; }
+        
+        /* 3D Animated Empty State */
+        .empty-canvas { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; }
+        
+        .cube-wrapper {
+            width: 120px; height: 120px;
+            perspective: 800px;
+            margin-bottom: 40px;
+            display: flex; align-items: center; justify-content: center;
         }
 
-        .arch-node span {
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--text-3);
+        .cube {
+            width: 60px; height: 60px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotateCube 8s linear infinite;
+        }
+        
+        .cube-face {
+            position: absolute;
+            width: 60px; height: 60px;
+            border: 2px solid var(--border-base);
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(4px);
+            display: flex; align-items: center; justify-content: center;
+        }
+        
+        .cube-face.front  { transform: rotateY(  0deg) translateZ(30px); }
+        .cube-face.right  { transform: rotateY( 90deg) translateZ(30px); }
+        .cube-face.back   { transform: rotateY(180deg) translateZ(30px); }
+        .cube-face.left   { transform: rotateY(-90deg) translateZ(30px); }
+        .cube-face.top    { transform: rotateX( 90deg) translateZ(30px); }
+        .cube-face.bottom { transform: rotateX(-90deg) translateZ(30px); }
+
+        .cube-core {
+            position: absolute;
+            width: 20px; height: 20px;
+            background: var(--text-heading);
+            border-radius: 4px;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
 
-        .arch-arrow {
-            margin: 0 14px;
-            color: var(--text-muted);
-            font-size: 12px;
+        @keyframes rotateCube {
+            0%   { transform: rotateX(-20deg) rotateY(0deg); }
+            100% { transform: rotateX(-20deg) rotateY(360deg); }
         }
 
-        /* ── Responsive ─────────────────────────────────────── */
-        @media (max-width: 600px) {
-            .shell { padding: 32px 16px 60px; }
-            .input-bar { flex-direction: column; align-items: stretch; }
-            .btn-run { width: 100%; text-align: center; }
-            .arch { flex-wrap: wrap; gap: 8px; justify-content: center; }
-            .arch-arrow { margin: 0 6px; }
+        .empty-text { font-size: 16px; font-weight: 600; color: var(--text-heading); margin-bottom: 8px; }
+        .empty-subtext { font-size: 14px; color: var(--text-muted); max-width: 300px; line-height: 1.5; }
+
+        /* Feed Elements */
+        .feed-header { display: none; align-items: center; justify-content: space-between; margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid var(--border-base); }
+        .feed-header.visible { display: flex; animation: slideDown 0.4s ease forwards; }
+        .feed-title { font-size: 18px; font-weight: 600; color: var(--text-heading); }
+        .feed-meta { font-size: 12px; font-family: 'JetBrains Mono', monospace; color: var(--text-muted); }
+
+        .metric-card {
+            background: var(--bg-card); border: 1px solid var(--border-base); border-radius: 12px; margin-bottom: 24px; box-shadow: var(--shadow-sm);
+            display: none; /* Controlled by JS Guided Steps */
         }
+        .metric-card.visible { display: block; animation: slideUpSpring 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        
+        .metric-header { padding: 16px 24px; border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; gap: 12px; background: #fdfdfd; border-top-left-radius: 12px; border-top-right-radius: 12px; }
+        .step-index { width: 24px; height: 24px; border-radius: 6px; background: var(--border-subtle); color: var(--text-muted); font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; }
+        .metric-title { font-size: 14px; font-weight: 600; color: var(--text-heading); flex: 1; }
+        .metric-status { font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 100px; letter-spacing: 0.02em; }
+        
+        .status-neutral { background: var(--border-subtle); color: var(--text-body); }
+        .status-good { background: var(--safe-bg); color: var(--safe-text); border: 1px solid var(--safe-border); }
+        .status-bad { background: var(--critical-bg); color: var(--critical-text); border: 1px solid var(--critical-border); }
+
+        .kv-table { width: 100%; border-collapse: collapse; }
+        .kv-row { display: flex; padding: 16px 24px; border-bottom: 1px solid var(--border-subtle); }
+        .kv-row:last-child { border-bottom: none; }
+        .kv-key { width: 140px; font-size: 13px; font-weight: 500; color: var(--text-muted); flex-shrink: 0; }
+        .kv-val { flex: 1; font-size: 14px; color: var(--text-heading); }
+        .kv-val.mono { font-family: 'JetBrains Mono', monospace; font-size: 13px; }
+        .kv-val.prose { line-height: 1.6; color: var(--text-body); }
+
+        .cm-track { flex: 1; height: 6px; background: var(--border-base); border-radius: 3px; max-width: 200px; margin-right: 12px; display: inline-block; vertical-align: middle; }
+        .cm-fill { height: 100%; border-radius: 3px; }
+
+        .doc-list { padding: 16px 24px; background: var(--bg-panel); display: flex; flex-direction: column; gap: 8px; }
+        .doc-item { background: var(--bg-card); border: 1px solid var(--border-base); border-radius: 8px; padding: 16px; display: flex; gap: 16px; }
+        .doc-meta { width: 60px; flex-shrink: 0; display: flex; flex-direction: column; gap: 4px; }
+        .doc-score { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 600; color: var(--safe-dot); }
+        .doc-id { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--text-ghost); }
+        .doc-text { font-size: 13px; line-height: 1.6; color: var(--text-body); }
+        
+        .code-block-wrapper { padding: 16px 24px; }
+        .code-block { background: var(--text-heading); color: #fff; padding: 20px; border-radius: 8px; font-size: 13px; line-height: 1.6; position: relative; }
+        .code-label { position: absolute; top: 0; right: 20px; transform: translateY(-50%); background: var(--border-strong); color: #fff; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 100px; text-transform: uppercase; }
+
+        .alert-box { margin: 16px 24px 0; padding: 16px; background: var(--critical-bg); border: 1px solid var(--critical-border); border-radius: 8px; display: flex; gap: 12px; }
+        .alert-box svg { color: var(--critical-text); flex-shrink: 0; }
+        .alert-box h4 { font-size: 13px; font-weight: 600; color: var(--critical-text); margin-bottom: 4px; }
+        .alert-box p { font-size: 13px; color: var(--critical-text); line-height: 1.5; }
+
+        .loading-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(252,252,252,0.8); backdrop-filter: blur(2px); z-index: 50; display: none; align-items: center; justify-content: center; flex-direction: column; gap: 16px; }
+        .loading-overlay.active { display: flex; }
+        .spinner { width: 24px; height: 24px; border: 3px solid var(--border-base); border-top-color: var(--text-heading); border-radius: 50%; animation: spin 0.8s linear infinite; }
+
+        /* Step progression button */
+        .step-next-container {
+            display: none;
+            justify-content: flex-end;
+            margin-top: 16px;
+            margin-bottom: 32px;
+        }
+        .step-next-container.visible { display: flex; animation: slideUpSpring 0.4s ease forwards; }
+        
+        .btn-next-step {
+            background: #fff; border: 1px solid var(--border-base); color: var(--text-heading);
+            padding: 10px 20px; border-radius: 100px; font-size: 13px; font-weight: 600; cursor: pointer;
+            display: inline-flex; align-items: center; gap: 8px; box-shadow: var(--shadow-sm); transition: 0.2s;
+        }
+        .btn-next-step:hover { background: #fafafa; border-color: var(--border-hover); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+
+        @keyframes slideUpSpring { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes spin { to { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
-    <div class="shell">
-        <!-- Header -->
-        <header class="header">
-            <div class="brand-mark">
-                <div class="brand-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                </div>
-                <h1>SafeGuard AI</h1>
-            </div>
-            <p class="subtitle">Classify intent · retrieve precedents · draft reply · decide escalation</p>
-        </header>
-
-        <!-- Input -->
-        <form method="POST" id="main-form" class="input-section">
-            <div class="input-box">
-                <textarea name="message" id="input-msg" placeholder="Paste a customer support tweet — e.g. &quot;Charged $34 for a trip that said $18 upfront @Uber_Support&quot;" required>{{ message }}</textarea>
-                <div class="input-bar">
-                    <div class="chips">
-                        <span class="chip" data-tweet="My driver ran a red light and I genuinely felt unsafe the entire ride @Uber_Support">🚨 Safety</span>
-                        <span class="chip" data-tweet="Applied SAVE20 promo code but still charged full price on my last trip @Uber_Support">🎟️ Promo</span>
-                        <span class="chip" data-tweet="Trip was $34 but upfront price said $18. How do you explain this @Uber_Support">💸 Fare</span>
-                        <span class="chip" data-tweet="I left my laptop in the back seat of my Uber. Please help me get it back @Uber_Support">📦 Lost item</span>
-                    </div>
-                    <button type="submit" class="btn-run" id="submit-btn">Analyze →</button>
-                </div>
-            </div>
-        </form>
-
-        <!-- Loader -->
-        <div class="loader" id="loader">
-            <div class="bounce-dots"><span></span><span></span><span></span></div>
-            <p>Running pipeline...</p>
+    
+    <!-- ═══ SPLASH SCREEN ═══ -->
+    <div id="splash-screen">
+        <div class="splash-logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
+        <div class="splash-text">
+            <h1>SafeGuard AI</h1>
+            <p>Evaluating autonomous routing behavior using structural diagnostic trace pipelines.</p>
+        </div>
+        <button class="start-btn" onclick="hideSplash()">Enter Operations Console</button>
+    </div>
 
-        {% if result %}
-        <div class="divider"></div>
-        <div class="section-title">Pipeline output</div>
-
-        <!-- Step 1 -->
-        <div class="step" id="step-1">
-            <div class="step-top">
-                <div class="step-badge">1</div>
-                <h3>Classification</h3>
-            </div>
-            <div class="step-body">
-                <div class="row">
-                    <span class="row-key">Intent</span>
-                    <span class="row-val">{{ result.classification.intent }}</span>
+    <div class="app-layout">
+        
+        <!-- ═══ LEFT PANEL ═══ -->
+        <nav class="panel-nav">
+            <div class="nav-header">
+                <div class="brand-lockup">
+                    <div class="logo-box">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div class="brand-title">SafeGuard AI</div>
                 </div>
-                <div class="row">
-                    <span class="row-key">Confidence</span>
-                    <span class="row-val">
-                        {% set pct = (result.classification.confidence * 100)|round(1) %}
-                        <div class="conf-wrap">
-                            <div class="conf-track">
-                                <div class="conf-bar" style="width:{{ pct }}%; background:{% if pct >= 70 %}var(--green){% elif pct >= 40 %}var(--amber){% else %}var(--red){% endif %};"></div>
-                            </div>
-                            {{ pct }}%
+                <p class="nav-desc">Operations dashboard for autonomous support routing and safety classification.</p>
+            </div>
+
+            <form method="POST" id="main-form" class="input-section">
+                <div class="editor-container">
+                    <div class="editor-header">
+                        <div class="pulse-dot"></div> Live Analysis Environment
+                    </div>
+                    <textarea name="message" id="input-msg" class="editor-input" placeholder="Paste a customer support tweet to trace the decision pipeline..." required>{{ message }}</textarea>
+                    
+                    <div class="editor-toolbar">
+                        <div class="demo-chip-group">
+                            <button type="button" class="demo-chip" data-txt="Driver was totally erratic, ran a red light and I felt incredibly unsafe @Uber_Support">Safety 🚨</button>
+                            <button type="button" class="demo-chip" data-txt="Applied SAVE20 promo but was still charged full price on my trip @Uber_Support">Promo 🎟️</button>
                         </div>
-                    </span>
-                </div>
-                <div class="row">
-                    <span class="row-key">Reasoning</span>
-                    <span class="row-val prose">{{ result.classification.reasoning }}</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="step" id="step-2">
-            <div class="step-top">
-                <div class="step-badge">2</div>
-                <h3>Retrieval + Draft</h3>
-                <span class="ground-tag ground-{{ result.draft.grounding_quality }}" style="margin-left:auto;">{{ result.draft.grounding_quality }}</span>
-            </div>
-            <div class="step-body">
-                {% for p in result.draft.precedents %}
-                <div class="prec">
-                    <span class="prec-score">{{ (p.similarity * 100)|round(0)|int }}%</span>
-                    <div>
-                        <div class="prec-id">{{ p.id }}</div>
-                        <div class="prec-text">{{ p.brand_reply }}</div>
+                        <button type="submit" class="btn-primary" id="btn-submit">Run Trace</button>
                     </div>
                 </div>
-                {% else %}
-                <div class="prec-empty">No precedents exceeded the similarity threshold</div>
-                {% endfor %}
+            </form>
 
-                <div class="draft-wrap">
-                    <div class="draft-label">Drafted reply</div>
-                    <div class="draft-box">{{ result.draft.draft_reply }}</div>
+            <div class="arch-map">
+                <div class="arch-title">Pipeline Architecture</div>
+                <div class="arch-list">
+                    <div class="arch-node">
+                        <div class="node-circle" id="node-1"></div>
+                        <div class="node-label" id="label-1">Intent Classification</div>
+                        <div class="node-meta">Classifier</div>
+                    </div>
+                    <div class="arch-node">
+                        <div class="node-circle" id="node-2"></div>
+                        <div class="node-label" id="label-2">Precedent Retrieval</div>
+                        <div class="node-meta">Vector DB</div>
+                    </div>
+                    <div class="arch-node">
+                        <div class="node-circle" id="node-3"></div>
+                        <div class="node-label" id="label-3">Routing Decision</div>
+                        <div class="node-meta">Escalator</div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </nav>
 
-        <!-- Step 3 -->
-        <div class="step" id="step-3">
-            <div class="step-top">
-                <div class="step-badge">3</div>
-                <h3>Escalation</h3>
-                <span class="pill {% if result.escalation.decision == 'escalate' %}pill-escalate{% else %}pill-auto{% endif %}" style="margin-left:auto;">
-                    {{ result.escalation.decision }}
-                </span>
+        <!-- ═══ RIGHT PANEL ═══ -->
+        <main class="panel-content" id="scroll-target">
+            
+            <div class="loading-overlay" id="loader">
+                <div class="spinner"></div>
+                <div style="font-size:13px; font-weight:500; color:var(--text-muted);">Executing pipeline trace...</div>
             </div>
-            <div class="step-body">
-                {% if result.escalation.hard_rule_triggered %}
-                <div class="safety-banner">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                    <p>Safety guardrail triggered — deterministic escalation enforced in code, not by LLM</p>
-                </div>
-                {% endif %}
-                <div class="row">
-                    <span class="row-key">Reason</span>
-                    <span class="row-val prose">{{ result.escalation.reason }}</span>
-                </div>
-            </div>
-        </div>
-        {% endif %}
 
-        <!-- Architecture -->
-        <div class="arch">
-            <div class="arch-node"><div class="arch-dot" style="background:var(--blue);"></div><span>Tweet</span></div>
-            <div class="arch-arrow">→</div>
-            <div class="arch-node"><div class="arch-dot" style="background:var(--amber);"></div><span>Classify</span></div>
-            <div class="arch-arrow">→</div>
-            <div class="arch-node"><div class="arch-dot" style="background:var(--green);"></div><span>Retrieve + Draft</span></div>
-            <div class="arch-arrow">→</div>
-            <div class="arch-node"><div class="arch-dot" style="background:var(--red);"></div><span>Escalate</span></div>
-        </div>
+            {% if not result %}
+            <!-- Animated 3D Core Empty State -->
+            <div class="empty-canvas">
+                <div class="cube-wrapper">
+                    <div class="cube">
+                        <div class="cube-face front"></div>
+                        <div class="cube-face back"></div>
+                        <div class="cube-face right"></div>
+                        <div class="cube-face left"></div>
+                        <div class="cube-face top"></div>
+                        <div class="cube-face bottom"></div>
+                        <div class="cube-core"></div>
+                    </div>
+                </div>
+                <div class="empty-text">Awaiting input stream</div>
+                <div class="empty-subtext">Submit a customer payload from the editor to inspect the multi-stage neural routing decisions.</div>
+            </div>
+            {% else %}
+            <!-- Results Feed -->
+            <div class="content-scroll-area">
+                
+                <div class="feed-header" id="feed-header">
+                    <h2 class="feed-title">Execution Trace</h2>
+                    <span class="feed-meta">ID: trc_req_0x{{ range(1000, 9999)|random }}</span>
+                </div>
+
+                <!-- Stage 1 -->
+                <div class="metric-card" id="card-1">
+                    <div class="metric-header">
+                        <div class="step-index">1</div>
+                        <div class="metric-title">Intent Classification</div>
+                        <div class="metric-status status-neutral">DONE</div>
+                    </div>
+                    <div class="metric-body">
+                        <div class="kv-table">
+                            <div class="kv-row"><div class="kv-key">Detected class</div><div class="kv-val mono">{{ result.classification.intent }}</div></div>
+                            <div class="kv-row">
+                                <div class="kv-key">Confidence score</div>
+                                <div class="kv-val">
+                                    {% set conf = (result.classification.confidence * 100)|round(1) %}
+                                    <span class="cm-track">
+                                        <div class="cm-fill" style="width: {{ conf }}%; background: {% if conf >= 70 %}var(--safe-dot){% elif conf >= 40 %}var(--warn-dot){% else %}var(--critical-dot){% endif %};"></div>
+                                    </span>
+                                    <span class="mono" style="font-size: 13px;">{{ conf }}%</span>
+                                </div>
+                            </div>
+                            <div class="kv-row"><div class="kv-key">LLM Reasoning</div><div class="kv-val prose">{{ result.classification.reasoning }}</div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-next-container" id="next-1">
+                    <button class="btn-next-step" onclick="revealStep(2)">Proceed to Memory Retrieval &rarr;</button>
+                </div>
+
+                <!-- Stage 2 -->
+                <div class="metric-card" id="card-2">
+                    <div class="metric-header">
+                        <div class="step-index">2</div>
+                        <div class="metric-title">Precedent Retrieval & Synthesis</div>
+                        <div class="metric-status {% if result.draft.grounding_quality == 'strong' %}status-good{% elif result.draft.grounding_quality == 'moderate' %}status-neutral{% else %}status-bad{% endif %}" style="font-family:'JetBrains Mono', monospace; font-size:10px;">
+                            GROUNDING: {{ result.draft.grounding_quality | upper }}
+                        </div>
+                    </div>
+                    <div class="metric-body">
+                        <div class="doc-list">
+                            {% for p in result.draft.precedents %}
+                            <div class="doc-item">
+                                <div class="doc-meta"><span class="doc-score">{{ (p.similarity * 100)|round(0)|int }}%</span><span class="doc-id">{{ p.id }}</span></div>
+                                <div class="doc-text">{{ p.brand_reply }}</div>
+                            </div>
+                            {% else %}
+                            <div style="padding: 24px; text-align:center; color:var(--text-ghost); font-size:13px; font-family:'JetBrains Mono', monospace;">NULL: No precedents cleared similarity thresholds.</div>
+                            {% endfor %}
+                        </div>
+                        <div class="code-block-wrapper"><div class="code-block"><div class="code-label">Synthesized Draft</div>{{ result.draft.draft_reply }}</div></div>
+                    </div>
+                </div>
+
+                <div class="step-next-container" id="next-2">
+                    <button class="btn-next-step" onclick="revealStep(3)">Evaluate Escalation Rules &rarr;</button>
+                </div>
+
+                <!-- Stage 3 -->
+                <div class="metric-card" id="card-3">
+                    <div class="metric-header">
+                        <div class="step-index">3</div>
+                        <div class="metric-title">Routing Decision</div>
+                        <div class="metric-status {% if result.escalation.decision == 'escalate' %}status-bad{% else %}status-good{% endif %}">
+                            {{ result.escalation.decision | upper }}
+                        </div>
+                    </div>
+                    <div class="metric-body">
+                        {% if result.escalation.hard_rule_triggered %}
+                        <div class="alert-box">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                            <div><h4>Deterministic Safety Guardrail Engaged</h4><p>This escalation was enforced by hard-coded system rules, superseding LLM logic due to safety keywords and intent classifications.</p></div>
+                        </div>
+                        {% endif %}
+                        <div class="kv-table"><div class="kv-row"><div class="kv-key">Decision context</div><div class="kv-val prose">{{ result.escalation.reason }}</div></div></div>
+                    </div>
+                </div>
+                
+            </div>
+            {% endif %}
+        </main>
     </div>
 
     <script>
-        // Chip click → fill textarea
-        document.querySelectorAll('.chip').forEach(c => {
-            c.addEventListener('click', () => {
-                document.getElementById('input-msg').value = c.dataset.tweet;
-                document.getElementById('input-msg').focus();
+        // Splash Session Management
+        function hideSplash() {
+            document.getElementById('splash-screen').classList.add('hide');
+            sessionStorage.setItem('splashShown', 'true');
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            // Bypass splash if already shown in this session
+            if (sessionStorage.getItem('splashShown') === 'true') {
+                const splash = document.getElementById('splash-screen');
+                splash.style.transition = 'none';
+                splash.style.opacity = '0';
+                splash.style.display = 'none';
+            }
+        });
+
+        // Preset chips logic
+        document.querySelectorAll('.demo-chip').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const ta = document.getElementById('input-msg');
+                ta.value = btn.dataset.txt;
+                ta.focus();
             });
         });
 
-        // Submit state
+        // Form submission loader
         document.getElementById('main-form').addEventListener('submit', () => {
-            document.getElementById('submit-btn').disabled = true;
-            document.getElementById('submit-btn').textContent = 'Analyzing...';
+            const btn = document.getElementById('btn-submit');
+            btn.disabled = true;
+            btn.innerHTML = 'Running...';
             document.getElementById('loader').classList.add('active');
+            
+            // Set a flag to trigger the stepped reveal when page reloads with results
+            sessionStorage.setItem('runTrace', 'true');
         });
 
-        // Staggered reveal
+        // Interactive Guided Step Reveal Logic
+        function revealStep(stepNum) {
+            // Hide previous 'next' button
+            const prevNextBtn = document.getElementById(`next-${stepNum - 1}`);
+            if (prevNextBtn) prevNextBtn.classList.remove('visible');
+
+            // Show current card
+            const card = document.getElementById(`card-${stepNum}`);
+            if (card) {
+                card.classList.add('visible');
+                
+                // Activate Architecture Node
+                document.getElementById(`node-${stepNum}`).classList.add('active');
+                document.getElementById(`label-${stepNum}`).classList.add('active');
+                
+                // Scroll into view smoothly
+                card.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            }
+
+            // Show next button (if it exists)
+            const nextBtn = document.getElementById(`next-${stepNum}`);
+            if (nextBtn) {
+                setTimeout(() => nextBtn.classList.add('visible'), 500); // Wait for card anim
+            }
+        }
+
         window.addEventListener('load', () => {
-            ['step-1', 'step-2', 'step-3'].forEach((id, i) => {
-                const el = document.getElementById(id);
-                if (el) setTimeout(() => el.classList.add('visible'), 200 + i * 500);
-            });
+            const hasResult = {{ 'true' if result else 'false' }};
+            if (hasResult) {
+                document.getElementById('feed-header').classList.add('visible');
+                // Start the guided walk: Show step 1 immediately
+                setTimeout(() => revealStep(1), 300);
+            }
         });
     </script>
 </body>
