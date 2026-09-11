@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/hero_banner.svg" alt="SafeGuard AI Banner" width="100%"/>
+  <img src="https://raw.githubusercontent.com/ketarora/SafeGaurd_AI/main/assets/hero_banner.svg" alt="SafeGuard AI Banner" width="100%"/>
 </p>
 
 <p align="center">
@@ -33,7 +33,9 @@ Given an inbound customer support payload from `@Uber_Support`, this agentic pip
 We didn't just build a pipeline; we built an ultra-premium, interactive operations console that traces neural payload execution in real-time.
 
 <br>
-<img src="assets/demo_console.png" alt="Ops Console UI" width="100%"/>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ketarora/SafeGaurd_AI/main/assets/demo_console.png" alt="Ops Console Demo" width="100%"/>
+</p>
 <br>
 
 Run it locally via the demo CLI or web app to test arbitrary customer complaints and trace the exact logic graph.
@@ -43,7 +45,7 @@ Run it locally via the demo CLI or web app to test arbitrary customer complaints
 ## 🧠 Architecture Flow
 
 <p align="center">
-  <img src="assets/architecture.svg" alt="SafeGuard AI Architecture Flowchart" width="100%"/>
+  <img src="https://raw.githubusercontent.com/ketarora/SafeGaurd_AI/main/assets/architecture.svg" alt="SafeGuard AI Architecture Flowchart" width="100%"/>
 </p>
 
 ---
@@ -78,6 +80,10 @@ python demo/app.py
 ## 📊 Evaluation Truthfulness
 
 We don't trust our pipeline. We prove it computationally against a 200-row blind-labeled dataset holding real Kaggle Support data.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ketarora/SafeGaurd_AI/main/assets/metrics_hud.svg" alt="Metrics Dashboard HUD" width="100%"/>
+</p>
 
 | Metric | Main Pipeline | Trivial Baseline | Simple Baseline (CV) |
 |--------|--------------|------------------|-----------------|
