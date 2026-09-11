@@ -14,3 +14,18 @@ outputs/
 .ipynb_checkpoints/
 .DS_Store
 Thumbs.db
+
+# Scratch / large files — never track
+*.zip
+hiver-prd.md
+hiver-project-brief.md
+hiver-prompt-pack.md
+hiver-golden-set-guide.md
+hiver-golden-set-final-package.md
+hiver-open-execution-brief.md
+labeling_tool.html
+golden_set_unlabeled_clean.csv
+data_explore_output.txt
+eval_log*.txt
+golden_sample_output.txt
+validate_out*.txt
