@@ -1,18 +1,16 @@
 ![SafeGuard AI Banner](./assets/hero_banner.svg)
 
-**Welcome to the SafeGuard AI Core Operations Repository.**  
 *This project provides a robust, math-backed neural pipeline to autonomously route, classify, and intelligently resolve customer support telemetry.*
 
 <p align="center">
-  <b>Hiver SDE Intern Take-Home</b><br>
   Intelligent AI Support Routing with Hard-Coded Safety Boundaries
 </p>
 
 <p align="center">
   <a href="#quick-start"><b>Quick Start</b></a> •
-  <a href="#architecture"><b>Architecture</b></a> •
+  <a href="#architecture-flow"><b>Architecture</b></a> •
   <a href="#evaluation-truthfulness"><b>Metrics</b></a> •
-  <a href="#visual-demo"><b>Ops Console</b></a>
+  <a href="#visual-demo-the-ops-console"><b>Ops Console</b></a>
 </p>
 
 ---
@@ -112,7 +110,6 @@ For the full philosophical deep dive on what we *chose not to build* and our act
 ---
 
 ## ✍️ Citations & Compliance
-* Built for **Hiver SDE Intern Take-Home**.
 * Dataset: [Customer Support on Twitter (Kaggle)](https://www.kaggle.com/datasets/thoughtvector/customer-support-on-twitter).
 * Model: ChatGPT-4o-Mini via API. Embeddings via `all-MiniLM-L6-v2`.
 * UX/UI: Handcrafted pure CSS/JS for an ultra-premium experience.
