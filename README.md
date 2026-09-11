@@ -45,6 +45,11 @@ Run it locally via the demo CLI or web app to test arbitrary customer complaints
 
 ![SafeGuard AI Architecture Flowchart](./assets/architecture.svg)
 
+### SafeGuard AI vs. Standard AI Agents
+We designed this pipeline specifically to combat the dangerous hallucination tendencies of standard LLM-based autonomous agents.
+
+![SafeGuard Strategy Comparison](./assets/comparison_flow.svg)
+
 ---
 
 ## ⏱️ Quick Start (< 15 Minutes)

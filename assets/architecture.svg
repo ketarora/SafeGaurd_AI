@@ -34,8 +34,8 @@
   <circle cx="750" cy="370" r="4" fill="#10B981"/>
 
   <!-- Texts along path -->
-  <text x="630" y="175" font-family="system-ui" font-size="12" font-weight="bold" fill="#ef4444">Safety Match</text>
-  <text x="630" y="325" font-family="system-ui" font-size="12" font-weight="bold" fill="#10B981">Standard Intent</text>
+  <text x="610" y="160" font-family="system-ui" font-size="12" font-weight="bold" fill="#ef4444" text-anchor="middle">Safety Match</text>
+  <text x="610" y="345" font-family="system-ui" font-size="12" font-weight="bold" fill="#10B981" text-anchor="middle">Standard Intent</text>
 
   <!-- Input Node -->
   <g transform="translate(40, 225)">
