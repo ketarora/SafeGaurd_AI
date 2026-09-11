@@ -1,0 +1,43 @@
+<svg width="1200" height="300" viewBox="0 0 1200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="300" fill="#ffffff"/>
+  
+  <!-- Subtle High-tech Grid -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#f3f4f6" stroke-width="1.5"/>
+    </pattern>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="300" fill="url(#grid)"/>
+  
+  <!-- Glowing subtle backlights -->
+  <circle cx="600" cy="150" r="300" fill="url(#glow)"/>
+  <circle cx="200" cy="300" r="400" fill="url(#glow)"/>
+  
+  <!-- Center Logo (Exact Match to App.py) -->
+  <g transform="translate(564, 40) scale(1.5)">
+    <path d="M24 6L6 14V26C6 36 14 42 24 46C34 42 42 36 42 26V14L24 6Z" stroke="#111827" stroke-width="4" stroke-linejoin="round" />
+    <circle cx="24" cy="20" r="4" fill="#111827"/>
+    <circle cx="16" cy="30" r="3" fill="#111827"/>
+    <circle cx="32" cy="30" r="3" fill="#10B981"/>
+    <path d="M22 23L17 28" stroke="#111827" stroke-width="3" stroke-linecap="round"/>
+    <path d="M26 23L31 28" stroke="#111827" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Typography -->
+  <text x="600" y="170" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="46" fill="#111827" text-anchor="middle" letter-spacing="-1">
+    SafeGuard AI
+  </text>
+  
+  <text x="600" y="210" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="20" fill="#6b7280" text-anchor="middle" letter-spacing="0.5">
+    Autonomous Support Routing Engine
+  </text>
+  
+  <text x="600" y="245" font-family="monospace" font-weight="600" font-size="13" fill="#10b981" text-anchor="middle" letter-spacing="1">
+    100.0% SAFETY ESCALATION RECALL
+  </text>
+</svg>

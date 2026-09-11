@@ -1,0 +1,89 @@
+<svg width="1000" height="500" viewBox="0 0 1000 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1000" height="500" fill="#ffffff" rx="12"/>
+  
+  <!-- Grid -->
+  <defs>
+    <pattern id="gridflow" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#f9fafb" stroke-width="2"/>
+    </pattern>
+    <linearGradient id="neonPath" x1="0" y1="0" x2="1000" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#d1d5db"/>
+      <stop offset="0.5" stop-color="#10B981"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <filter id="dropshadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+  <rect width="1000" height="500" fill="url(#gridflow)" rx="12"/>
+
+  <!-- Lines -->
+  <!-- Start to Stage 1 -->
+  <path d="M 120 250 L 250 250" stroke="#d1d5db" stroke-width="2" stroke-dasharray="6 6"/>
+  <!-- Stage 1 to Decision -->
+  <path d="M 450 250 L 520 250" stroke="#d1d5db" stroke-width="2"/>
+  <!-- Decision -> Safety -->
+  <path d="M 580 250 L 680 130 L 750 130" stroke="#ef4444" stroke-width="3" fill="none"/>
+  <!-- Decision -> Pipeline -->
+  <path d="M 580 250 L 680 370 L 750 370" stroke="url(#neonPath)" stroke-width="3" fill="none"/>
+
+  <!-- Arrow heads -->
+  <circle cx="250" cy="250" r="4" fill="#9ca3af"/>
+  <circle cx="520" cy="250" r="4" fill="#9ca3af"/>
+  <circle cx="750" cy="130" r="4" fill="#ef4444"/>
+  <circle cx="750" cy="370" r="4" fill="#10B981"/>
+
+  <!-- Texts along path -->
+  <text x="630" y="175" font-family="system-ui" font-size="12" font-weight="bold" fill="#ef4444">Safety Match</text>
+  <text x="630" y="325" font-family="system-ui" font-size="12" font-weight="bold" fill="#10B981">Standard Intent</text>
+
+  <!-- Input Node -->
+  <g transform="translate(40, 225)">
+    <rect width="80" height="50" rx="6" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.5"/>
+    <text x="40" y="26" font-family="system-ui" font-weight="600" font-size="12" fill="#4b5563" text-anchor="middle">Customer</text>
+    <text x="40" y="40" font-family="system-ui" font-weight="500" font-size="10" fill="#9ca3af" text-anchor="middle">Payload</text>
+  </g>
+
+  <!-- Stage 1 Node -->
+  <g transform="translate(250, 190)" filter="url(#dropshadow)">
+    <rect width="200" height="120" rx="12" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+    <rect x="0" y="0" width="200" height="40" rx="12" fill="#f9fafb"/>
+    <!-- hide bottom corners of header -->
+    <rect x="0" y="20" width="200" height="20" fill="#f9fafb"/>
+    <path d="M0 40 L 200 40" stroke="#e5e7eb" stroke-width="1"/>
+    
+    <text x="100" y="25" font-family="system-ui" font-weight="700" font-size="12" fill="#111827" text-anchor="middle">Stage 1</text>
+    <text x="100" y="65" font-family="system-ui" font-weight="600" font-size="14" fill="#111827" text-anchor="middle">Neural Classification</text>
+    <text x="100" y="85" font-family="system-ui" font-weight="500" font-size="11" fill="#6b7280" text-anchor="middle">Maps 1 of 10 intents +</text>
+    <text x="100" y="100" font-family="system-ui" font-weight="500" font-size="11" fill="#6b7280" text-anchor="middle">Assigns Confidence</text>
+  </g>
+
+  <!-- Safety Gateway Node -->
+  <g transform="translate(520, 220)">
+    <rect width="60" height="60" rx="30" fill="#111827" filter="url(#dropshadow)"/>
+    <path d="M22 30 L28 36 L40 24" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+
+  <!-- Stage 3 Escalation -->
+  <g transform="translate(750, 80)" filter="url(#dropshadow)">
+    <rect width="200" height="100" rx="12" fill="#111827"/>
+    <text x="100" y="45" font-family="system-ui" font-weight="700" font-size="16" fill="#ffffff" text-anchor="middle">Terminal Guardrail</text>
+    <rect x="40" y="60" width="120" height="24" rx="4" fill="#ef4444" fill-opacity="0.1"/>
+    <text x="100" y="76" font-family="monospace" font-weight="700" font-size="12" fill="#ef4444" text-anchor="middle">FORCE ESCALATE</text>
+  </g>
+
+  <!-- Stage 2+ RAG / Drafting -->
+  <g transform="translate(750, 290)" filter="url(#dropshadow)">
+    <rect width="220" height="150" rx="12" fill="#ffffff" stroke="#e5e7eb" stroke-width="1.5"/>
+    <rect x="0" y="0" width="220" height="40" rx="12" fill="#f9fafb"/>
+    <rect x="0" y="20" width="220" height="20" fill="#f9fafb"/>
+    <path d="M0 40 L 220 40" stroke="#e5e7eb" stroke-width="1"/>
+    
+    <text x="110" y="25" font-family="system-ui" font-weight="700" font-size="12" fill="#111827" text-anchor="middle">Stage 2 & 3</text>
+    <text x="110" y="70" font-family="system-ui" font-weight="600" font-size="14" fill="#111827" text-anchor="middle">Precedent Vector RAG</text>
+    
+    <rect x="25" y="90" width="170" height="45" rx="6" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1"/>
+    <text x="110" y="108" font-family="system-ui" font-weight="600" font-size="11" fill="#15803d" text-anchor="middle">Drafts Grounded Reply</text>
+    <text x="110" y="125" font-family="system-ui" font-weight="600" font-size="11" fill="#15803d" text-anchor="middle">Triggers Auto-Handle</text>
+  </g>
+</svg>
